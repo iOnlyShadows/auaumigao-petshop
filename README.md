@@ -2,6 +2,13 @@
 
 Landing page do AUAUmigão Petshop, Bairro Brasília, Cascavel PR.
 
+## No ar
+
+- **https://ionlyshadows.github.io/auaumigao-petshop/** — design atual
+- **https://ionlyshadows.github.io/auaumigao-petshop/novo/** — versão Claymorphism, para comparar
+
+As duas estão com `noindex` e `robots.txt` bloqueando indexação, porque são demonstrações ainda não autorizadas pela loja. **Remover os dois ao publicar no domínio do cliente**, senão o site não aparece no Google.
+
 Site estático de um arquivo. Sem build, sem dependências, sem framework. Para rodar local, basta abrir o `index.html` ou servir a pasta:
 
 ```bash
