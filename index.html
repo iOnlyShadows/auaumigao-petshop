@@ -39,9 +39,14 @@
      porque as anteriores eram estimadas. Pegar as reais no
      Google Maps antes de publicar.
   6. FOTOS. Todas as imagens sao reais, vindas da fachada da
-     loja e do perfil @petshop.auaumigao. Os cachorros da
-     galeria sao clientes reais publicados pela propria loja
-     nos stories. Pedir autorizacao de uso antes de publicar.
+     loja e do perfil @petshop.auaumigao. Os cachorros sao
+     clientes reais publicados pela propria loja nos stories.
+     Pedir autorizacao de uso antes de publicar.
+  7. @ DE CLIENTES NOS STORIES. Os slides 2, 3 e 4 mostram os
+     arrobas que a loja marcou (@amandaadriana.alves,
+     @juuu_lauren). Eram publicos no story, mas repetir isso
+     num site e outra coisa. Confirmar com a loja, ou me
+     avisar que eu borro os arrobas antes de publicar.
   ============================================================
 -->
 
@@ -194,17 +199,58 @@ header{position:sticky;top:0;z-index:40;background:rgba(255,248,240,.92);
 .bento .ico{width:34px;height:34px;color:var(--orange-dp);margin-bottom:.9rem}
 .b-dark .ico{color:var(--orange)}
 
-/* ---------- galeria clientes ---------- */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
-.gal figure{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1;
-  background:var(--cream-2);cursor:zoom-in;border:1px solid var(--line)}
-.gal figure.tall{grid-row:span 2;aspect-ratio:auto}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.gal figure:hover img{transform:scale(1.05)}
-.gal figcaption{position:absolute;left:.65rem;bottom:.6rem;background:rgba(36,25,15,.82);
-  color:#fff;font-family:var(--f);font-weight:700;font-size:.9rem;
-  padding:.25rem .75rem;border-radius:var(--pill);backdrop-filter:blur(4px)}
-.gal-note{margin-top:1.4rem;font-size:.94rem;color:var(--muted)}
+/* ---------- stories dos clientes ----------
+   O anel usa o laranja da propria marca, nao o gradiente do Instagram:
+   a forma e o comportamento ja dizem "stories" sem furar a paleta. */
+.stories{list-style:none;display:flex;gap:clamp(.9rem,2.4vw,1.7rem);flex-wrap:wrap}
+.stories button{display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  background:none;border:0;padding:0;cursor:pointer;width:clamp(78px,15vw,124px)}
+.ring{display:block;width:100%;aspect-ratio:1;border-radius:var(--pill);padding:3px;
+  background:conic-gradient(from 140deg,var(--orange),#ffbe80,var(--orange-dp),var(--orange));
+  transition:transform .2s cubic-bezier(.16,1,.3,1)}
+.ring img{width:100%;height:100%;border-radius:var(--pill);object-fit:cover;
+  border:3px solid var(--cream);background:var(--cream-2)}
+.stories button:hover .ring,.stories button:focus-visible .ring{transform:scale(1.05)}
+.stories button:active .ring{transform:scale(.97)}
+.stories .nome{font-family:var(--f);font-weight:700;font-size:.92rem;color:var(--ink);
+  text-align:center;line-height:1.2}
+.stories-note{margin-top:1.8rem;font-size:.94rem;color:var(--muted)}
+
+/* ---------- visualizador de stories ---------- */
+.sv{position:fixed;inset:0;z-index:80;background:#0d0906;display:none;
+  align-items:center;justify-content:center;padding:clamp(0px,3vh,2rem) 1rem}
+.sv.on{display:flex}
+.sv-frame{position:relative;width:min(430px,100%);max-height:94vh;aspect-ratio:387/565;
+  background:#1a120b;border-radius:clamp(0px,2vw,var(--r));overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+.sv-frame>img{width:100%;height:100%;object-fit:contain}
+.sv-bars{position:absolute;top:.55rem;left:.55rem;right:.55rem;z-index:3;display:flex;gap:4px}
+.sv-bars i{flex:1;height:3px;border-radius:var(--pill);background:rgba(255,255,255,.36);overflow:hidden}
+.sv-bars i b{display:block;height:100%;width:0;background:#fff;border-radius:var(--pill)}
+.sv-bars i.feito b{width:100%}
+.sv-bars i.ativo b{width:100%;animation:svprog linear forwards}
+@keyframes svprog{from{width:0}to{width:100%}}
+.sv-top{position:absolute;top:1.35rem;left:.75rem;right:.75rem;z-index:3;
+  display:flex;align-items:center;gap:.6rem;
+  background:linear-gradient(180deg,rgba(0,0,0,.45),transparent);padding:.35rem .3rem 1.4rem}
+.sv-top img{width:34px;height:34px;border-radius:var(--pill);border:2px solid rgba(255,255,255,.85)}
+.sv-top span{font-family:var(--f);font-weight:700;font-size:.92rem;color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.sv-top .quem{margin-right:auto}
+.sv-x{width:44px;height:44px;border-radius:var(--pill);background:rgba(0,0,0,.38);
+  color:#fff;font-size:1.6rem;line-height:1;border:0;cursor:pointer;display:grid;place-items:center}
+.sv-x:hover{background:rgba(0,0,0,.62)}
+.sv-zona{position:absolute;top:0;bottom:0;z-index:2;border:0;background:transparent;cursor:pointer}
+.sv-zona.ante{left:0;width:32%}
+.sv-zona.prox{right:0;width:68%}
+.sv-seta{position:absolute;top:50%;transform:translateY(-50%);z-index:4;
+  width:46px;height:46px;border-radius:var(--pill);background:rgba(255,255,255,.14);
+  color:#fff;border:0;cursor:pointer;display:none;place-items:center}
+.sv-seta:hover{background:rgba(255,255,255,.26)}
+.sv-seta svg{width:22px;height:22px}
+.sv-seta.e{left:max(1rem,calc(50vw - 300px))}
+.sv-seta.d{right:max(1rem,calc(50vw - 300px))}
+@media (min-width:800px) and (hover:hover){.sv-seta{display:grid}}
 
 /* ---------- tosa ---------- */
 .tosa-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
@@ -244,15 +290,6 @@ footer{background:var(--ink);color:#b9a894;padding:2.5rem 0;border-top:1px solid
 .float:hover{transform:scale(1.07)}
 .float svg{width:31px;height:31px;color:#fff}
 
-/* ---------- lightbox ---------- */
-.lb{position:fixed;inset:0;z-index:80;background:rgba(24,16,9,.94);display:none;
-  align-items:center;justify-content:center;padding:1.5rem}
-.lb.on{display:flex}
-.lb img{max-width:min(760px,94vw);max-height:86vh;border-radius:var(--r);object-fit:contain}
-.lb-x{position:absolute;top:1rem;right:1rem;width:46px;height:46px;border-radius:var(--pill);
-  background:rgba(255,255,255,.14);color:#fff;font-size:1.6rem;cursor:pointer;
-  display:grid;place-items:center;border:0;line-height:1}
-
 /* ---------- reveal (MOTION_INTENSITY 4) ----------
    so esconde se o JS estiver vivo (classe .js no <html>). Sem JS,
    ou se o script quebrar, a pagina aparece inteira em vez de ficar em branco. */
@@ -271,7 +308,7 @@ footer{background:var(--ink);color:#b9a894;padding:2.5rem 0;border-top:1px solid
   .bento{grid-template-columns:repeat(2,1fr)}
   .b-img{grid-row:span 1}
   .b-img img{min-height:240px}
-  .gal{grid-template-columns:repeat(3,1fr)}
+  .stories{gap:1.1rem}
 }
 /* o nav de 4 itens mais o botao para de caber numa linha bem antes dos 720px,
    entao ele vira hamburguer aqui, nao so no breakpoint de celular */
@@ -288,7 +325,14 @@ footer{background:var(--ink);color:#b9a894;padding:2.5rem 0;border-top:1px solid
   .facts .wrap{grid-template-columns:1fr}
   .fact{padding:1.15rem .2rem}
   .bento{grid-template-columns:1fr}
-  .gal{grid-template-columns:repeat(2,1fr)}
+  /* no celular a fileira de stories rola na horizontal, igual ao Instagram */
+  .stories{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding-bottom:.5rem;margin-inline:-1.25rem;padding-inline:1.25rem;scrollbar-width:none}
+  .stories::-webkit-scrollbar{display:none}
+  .stories li{scroll-snap-align:start;flex:none}
+  /* e o story ocupa a tela inteira, em vez de deixar tarja preta em volta */
+  .sv{padding:0}
+  .sv-frame{width:100%;height:100%;max-height:none;aspect-ratio:auto;border-radius:0}
   .hero-cta .btn{flex:1 1 100%}
   .float{width:54px;height:54px;right:.9rem;bottom:.9rem}
 }
@@ -371,6 +415,60 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
   </div>
 </div>
 
+<!-- ============ BANHO E TOSA ============ -->
+<section>
+  <div class="wrap tosa-g">
+    <div class="rv">
+      <h2>Banho e tosa com hora marcada.</h2>
+      <p>Seu pet sai limpo, cheiroso e com gravatinha. E ainda vira estrela do nosso Instagram, se você deixar.</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Banho, secagem e escovação</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Tosa higiênica e tosa completa</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Cães e gatos, de todos os portes</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Agendamento pelo WhatsApp</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20queria%20agendar%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+        Agendar banho e tosa
+      </a>
+    </div>
+    <div class="tosa-img rv">
+      <img src="img/banho-tosa.webp" width="860" height="1528" loading="lazy"
+           alt="Magali, lulu da pomerânia preta e branca, recém-tosada e com laço amarelo, na sala de banho e tosa do AUAUmigão.">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTES ============ -->
+<section id="clientes" style="padding-top:0">
+  <div class="wrap">
+    <div class="head-s rv">
+      <h2>Quem já saiu daqui de gravatinha.</h2>
+      <p>Clientes de verdade, fotografados pela própria loja depois do banho.</p>
+    </div>
+    <!-- os stories sao os proprios posts da loja, com os adesivos que ela mesma
+         colocou. O <ul> segue navegavel por teclado se o JS nao carregar. -->
+    <ul class="stories rv" id="stories">
+      <li><button type="button" data-story="0">
+        <span class="ring"><img src="img/billy.jpg" width="382" height="268" loading="lazy" alt=""></span>
+        <span class="nome">Billy</span></button></li>
+      <li><button type="button" data-story="1">
+        <span class="ring"><img src="img/bob.jpg" width="252" height="266" loading="lazy" alt=""></span>
+        <span class="nome">Bob e Thor</span></button></li>
+      <li><button type="button" data-story="2">
+        <span class="ring"><img src="img/pepita.jpg" width="193" height="240" loading="lazy" alt=""></span>
+        <span class="nome">Pepita e Akira</span></button></li>
+      <li><button type="button" data-story="3">
+        <span class="ring"><img src="img/magali.jpg" width="388" height="450" loading="lazy" alt=""></span>
+        <span class="nome">Magali</span></button></li>
+      <li><button type="button" data-story="4">
+        <span class="ring"><img src="img/fiuk.jpg" width="193" height="256" loading="lazy" alt=""></span>
+        <span class="nome">Fiuk</span></button></li>
+    </ul>
+    <p class="stories-note rv">Toque em um pet para ver as fotos. Tem mais no Instagram da loja: <a href="https://www.instagram.com/petshop.auaumigao/" target="_blank" rel="noopener">@petshop.auaumigao</a></p>
+  </div>
+</section>
+
 <!-- ============ RACAO A GRANEL ============ -->
 <section class="granel" id="granel">
   <div class="wrap granel-g">
@@ -437,50 +535,6 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
   </div>
 </section>
 
-<!-- ============ BANHO E TOSA ============ -->
-<section>
-  <div class="wrap tosa-g">
-    <div class="rv">
-      <h2>Banho e tosa com hora marcada.</h2>
-      <p>Seu pet sai limpo, cheiroso e com gravatinha. E ainda vira estrela do nosso Instagram, se você deixar.</p>
-      <ul class="checks">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Banho, secagem e escovação</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Tosa higiênica e tosa completa</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Cães e gatos, de todos os portes</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Agendamento pelo WhatsApp</li>
-      </ul>
-      <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20queria%20agendar%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
-        Agendar banho e tosa
-      </a>
-    </div>
-    <div class="tosa-img rv">
-      <img src="img/tosa.jpg" width="193" height="242" loading="lazy"
-           alt="Cachorro de porte pequeno recém-tosado sobre a mesa de banho e tosa do AUAUmigão.">
-    </div>
-  </div>
-</section>
-
-<!-- ============ CLIENTES ============ -->
-<section id="clientes" style="padding-top:0">
-  <div class="wrap">
-    <div class="head-s rv">
-      <h2>Quem já saiu daqui de gravatinha.</h2>
-      <p>Clientes de verdade, fotografados pela própria loja depois do banho.</p>
-    </div>
-    <div class="gal">
-      <figure class="tall rv"><img src="img/magali.jpg" width="388" height="450" loading="lazy" alt="Magali, lulu da pomerânia preta e branca, tosada e com laço amarelo."><figcaption>Magali</figcaption></figure>
-      <figure class="rv"><img src="img/billy.jpg" width="382" height="268" loading="lazy" alt="Billy, cachorro de pelo creme, com gravata borboleta azul depois do banho."><figcaption>Billy</figcaption></figure>
-      <figure class="rv"><img src="img/fiuk.jpg" width="193" height="256" loading="lazy" alt="Fiuk, spitz alemão branco, com bandana colorida no pescoço."><figcaption>Fiuk</figcaption></figure>
-      <figure class="rv"><img src="img/thor.jpg" width="384" height="234" loading="lazy" alt="Thor, cachorro preto e branco de pelo longo, com gravata estampada."><figcaption>Thor</figcaption></figure>
-      <figure class="rv"><img src="img/bob.jpg" width="252" height="266" loading="lazy" alt="Bob, cachorro cinza de pelo comprido, com gravata borboleta amarela."><figcaption>Bob</figcaption></figure>
-      <figure class="rv"><img src="img/pepita.jpg" width="193" height="240" loading="lazy" alt="Pepita, pug, com lacinho vermelho na cabeça após a tosa."><figcaption>Pepita</figcaption></figure>
-      <figure class="rv"><img src="img/akira.jpg" width="193" height="244" loading="lazy" alt="Akira, cachorro pequeno de pelo dourado, com lacinho vermelho."><figcaption>Akira</figcaption></figure>
-    </div>
-    <p class="gal-note">Tem mais no Instagram da loja: <a href="https://www.instagram.com/petshop.auaumigao/" target="_blank" rel="noopener">@petshop.auaumigao</a></p>
-  </div>
-</section>
-
 <!-- ============ ONDE FICA ============ -->
 <section class="onde" id="onde">
   <div class="wrap onde-g">
@@ -536,9 +590,24 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
 </a>
 
-<div class="lb" id="lb" aria-hidden="true">
-  <button class="lb-x" id="lbx" aria-label="Fechar imagem">&times;</button>
-  <img id="lbimg" src="" alt="">
+<div class="sv" id="sv" role="dialog" aria-modal="true" aria-label="Fotos dos clientes do AUAUmigão" aria-hidden="true">
+  <button class="sv-seta e" id="svAnte" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+  </button>
+  <div class="sv-frame">
+    <div class="sv-bars" id="svBars"></div>
+    <div class="sv-top">
+      <img src="img/logo.png" width="34" height="34" alt="">
+      <span class="quem">petshop.auaumigao</span>
+      <button class="sv-x" id="svX" aria-label="Fechar">&times;</button>
+    </div>
+    <img id="svImg" src="" alt="">
+    <button class="sv-zona ante" id="svZa" aria-label="Foto anterior"></button>
+    <button class="sv-zona prox" id="svZp" aria-label="Próxima foto"></button>
+  </div>
+  <button class="sv-seta d" id="svProx" aria-label="Próxima foto">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+  </button>
 </div>
 
 <script>
@@ -572,34 +641,88 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
     });
   }
 
-  // lightbox da galeria
-  var lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg");
-  var ultimoFoco = null;
-  document.querySelectorAll(".gal figure").forEach(function(fig){
-    fig.setAttribute("tabindex","0");
-    fig.setAttribute("role","button");
-    var img = fig.querySelector("img");
-    fig.setAttribute("aria-label","Ampliar foto de " + fig.querySelector("figcaption").textContent);
-    function abrir(){
-      ultimoFoco = fig;
-      lbimg.src = img.src; lbimg.alt = img.alt;
-      lb.classList.add("on"); lb.setAttribute("aria-hidden","false");
-      document.body.style.overflow = "hidden";
-      document.getElementById("lbx").focus();
+  // ---- stories dos clientes ----
+  // cada slide e um story publicado pela propria loja, ja sem o cabecalho e a
+  // barra de responder do Instagram. O cronometro so roda se o usuario aceitar
+  // movimento; com prefers-reduced-motion ele avanca so no toque.
+  var STORIES = [
+    {src:"img/story-1.webp", alt:"Story da loja: Billy, cachorro de pelo creme, sendo penteado e depois pronto com gravata borboleta azul."},
+    {src:"img/story-2.webp", alt:"Story da loja: Bob, cachorro cinza com gravata borboleta amarela, e Thor, preto e branco com gravata estampada."},
+    {src:"img/story-3.webp", alt:"Story da loja: Pepita, pug, e Akira, cachorro dourado, as duas com lacinho vermelho. As meninas de sabado."},
+    {src:"img/story-4.webp", alt:"Story da loja: Magali, lulu da pomerania preta e branca, com laco amarelo."},
+    {src:"img/story-5.webp", alt:"Story da loja: Fiuk, spitz alemao branco, com bandana colorida, em quatro poses."}
+  ];
+  var DUR = 6000;
+  var sv = document.getElementById("sv"), svImg = document.getElementById("svImg"),
+      svBars = document.getElementById("svBars"), svX = document.getElementById("svX");
+  var idx = 0, aberto = false, foco = null, segurou = false, tDown = 0;
+
+  function pintaBarras(){
+    var html = "";
+    for (var i = 0; i < STORIES.length; i++){
+      var cls = i < idx ? "feito" : (i === idx ? "ativo" : "");
+      html += '<i class="' + cls + '"><b></b></i>';
     }
-    fig.addEventListener("click", abrir);
-    fig.addEventListener("keydown", function(e){
-      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrir(); }
-    });
-  });
-  function fechar(){
-    lb.classList.remove("on"); lb.setAttribute("aria-hidden","true");
-    lbimg.src = ""; document.body.style.overflow = "";
-    if (ultimoFoco) ultimoFoco.focus();
+    svBars.innerHTML = html;
+    var ativa = svBars.querySelector(".ativo b");
+    if (!ativa) return;
+    if (reduz){ ativa.style.animation = "none"; ativa.style.width = "100%"; return; }
+    ativa.style.animationDuration = DUR + "ms";
+    ativa.addEventListener("animationend", proximo);
   }
-  document.getElementById("lbx").addEventListener("click", fechar);
-  lb.addEventListener("click", function(e){ if (e.target === lb) fechar(); });
-  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && lb.classList.contains("on")) fechar(); });
+
+  function mostra(i){
+    idx = i;
+    svImg.src = STORIES[i].src;
+    svImg.alt = STORIES[i].alt;
+    pintaBarras();
+    if (STORIES[i+1]) { var pre = new Image(); pre.src = STORIES[i+1].src; }
+  }
+  function proximo(){ if (idx + 1 < STORIES.length) mostra(idx + 1); else fechaSV(); }
+  function anterior(){ if (idx > 0) mostra(idx - 1); }
+
+  function abreSV(i, origem){
+    foco = origem || null; aberto = true;
+    sv.classList.add("on"); sv.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+    mostra(i); svX.focus();
+  }
+  function fechaSV(){
+    aberto = false;
+    sv.classList.remove("on"); sv.setAttribute("aria-hidden","true");
+    svBars.innerHTML = ""; svImg.src = ""; document.body.style.overflow = "";
+    if (foco) foco.focus();
+  }
+
+  document.getElementById("stories").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-story]");
+    if (b) abreSV(+b.dataset.story, b);
+  });
+  svX.addEventListener("click", fechaSV);
+  document.getElementById("svZp").addEventListener("click", function(){ if (!segurou) proximo(); });
+  document.getElementById("svZa").addEventListener("click", function(){ if (!segurou) anterior(); });
+  document.getElementById("svProx").addEventListener("click", proximo);
+  document.getElementById("svAnte").addEventListener("click", anterior);
+  sv.addEventListener("click", function(e){ if (e.target === sv) fechaSV(); });
+
+  // segurar pausa o cronometro, igual ao Instagram
+  function pausa(v){
+    var ativa = svBars.querySelector(".ativo b");
+    if (ativa) ativa.style.animationPlayState = v ? "paused" : "running";
+  }
+  sv.addEventListener("pointerdown", function(){ tDown = Date.now(); segurou = false; pausa(true); });
+  sv.addEventListener("pointerup", function(){
+    segurou = Date.now() - tDown > 250; pausa(false);
+    setTimeout(function(){ segurou = false; }, 0);
+  });
+  sv.addEventListener("pointercancel", function(){ segurou = false; pausa(false); });
+
+  document.addEventListener("keydown", function(e){
+    if (!aberto) return;
+    if (e.key === "Escape") fechaSV();
+    else if (e.key === "ArrowRight") proximo();
+    else if (e.key === "ArrowLeft") anterior();
+  });
 })();
 </script>
 </body>
