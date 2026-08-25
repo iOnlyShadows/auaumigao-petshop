@@ -5,11 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <meta name="robots" content="noindex, nofollow">
-<!-- NOINDEX PROPOSITAL. Enquanto for demonstracao nao autorizada, esta pagina
-     nao pode ser indexada: ela competiria no Google com o proprio perfil da
-     loja e apareceria como site oficial sem a loja ter concordado.
-     REMOVER esta linha (e o robots.txt) ao publicar no dominio do cliente. -->
-
 <title>AUAUmigão Petshop | Ração a granel, banho e tosa no Bairro Brasília, Cascavel PR</title>
 <meta name="description" content="Petshop no Bairro Brasília, em Cascavel. Ração a granel de mais de 40 marcas, acessórios, banho e tosa. Fale no WhatsApp: (45) 99946-6447.">
 <link rel="canonical" href="https://auaumigao-petshop.vercel.app/">
@@ -19,13 +14,13 @@
 <meta property="og:site_name" content="AUAUmigão Petshop">
 <meta property="og:title" content="AUAUmigão Petshop | Bairro Brasília, Cascavel PR">
 <meta property="og:description" content="Ração a granel, acessórios, banho e tosa. Amor que late e mia por você.">
-<meta property="og:image" content="img/fachada.webp">
-<link rel="icon" href="img/logo.png">
-<link rel="apple-touch-icon" href="img/logo.png">
+<meta property="og:image" content="../img/fachada.webp">
+<link rel="icon" href="../img/logo.png">
+<link rel="apple-touch-icon" href="../img/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <!--
   ============================================================
@@ -62,7 +57,7 @@
   "@type": "PetStore",
   "name": "AUAUmigão Petshop",
   "slogan": "Amor que late e mia por você.",
-  "image": "img/fachada.webp",
+  "image": "../img/fachada.webp",
   "telephone": "+5545999466447",
   "sameAs": ["https://www.instagram.com/petshop.auaumigao/"],
   "address": {
@@ -83,74 +78,99 @@
 </script>
 
 <style>
-/* ------------------------------------------------------------------
-   Paleta extraida da logo real da loja (img/logo.png):
-   creme #fff8f0 = fundo da logo, laranja #fa7401 = wordmark.
-   O laranja da marca reprova contraste como texto (2.64:1 no creme),
-   entao ele e usado so como elemento grafico. Texto e botoes usam
-   os tons verificados abaixo.
-   Raio, tres niveis e nada alem disso: superficies e imagens 16px (--r),
-   chrome pequeno de 44px (logo, botao de menu) 12px, botoes pilula (--pill).
-   ------------------------------------------------------------------ */
+/* ==================================================================
+   ESTILO: Claymorphism (variante web), via ui-ux-pro-max.
+   Superficies macias e tateis: raio grande, borda grossa, sombra
+   dupla (realce interno no topo + aresta solida embaixo) e squish
+   ao pressionar. A aresta solida e o que da a sensacao de objeto.
+
+   PALETA. O fundo e o laranja vem da logo real da loja. A skill
+   sugeriu #F97316 como primaria e #2563EB como azul de confianca.
+   Medi os dois: o laranja da marca reprova como texto (2.64:1) e
+   ate com branco por cima (2.8:1), entao segue sendo so grafico,
+   como manda o proprio checklist da skill (4.5:1 minimo). O azul
+   passa nos dois sentidos e entrou, restrito a faixa de dados.
+
+   RAIO, tres niveis: superficie grande 28px, cartao 22px,
+   botao 16px. Circulo so em avatar e anel de story.
+   ================================================================== */
 :root{
-  --cream:#fff8f0;
-  --cream-2:#fdf1e4;
+  --cream:#fff7ed;
+  --cream-2:#fff0dd;
   --card:#ffffff;
   --ink:#24190f;        /* branco por cima = 17.2:1 AAA */
-  --body:#3f3126;       /* no creme = 11.9:1 AAA */
-  --muted:#6b5b4a;      /* no creme = 6.2:1  AA  */
-  --line:#e9dbc9;
+  --body:#3f3126;       /* no creme = 11.8:1 AAA */
+  --muted:#6b5b4a;      /* no creme = 6.1:1  AA  */
+  --line:#f2d9b6;       /* borda grossa da clay */
+  --edge:#e9c295;       /* aresta solida embaixo */
+  --edge-ink:#0d0906;
+  --edge-wa:#0a5a30;
   --orange:#fa7401;     /* grafico apenas, nunca texto */
   --orange-dp:#b45300;  /* branco por cima = 5.0:1 AA */
+  --trust:#2563eb;      /* no creme = 4.9:1 AA, branco por cima = 5.2:1 */
   --wa:#0f7d42;         /* branco por cima = 5.2:1 AA */
-  --r:16px;
+  --r-lg:28px;
+  --r:22px;
+  --r-btn:16px;
   --pill:999px;
-  --shadow:0 10px 30px rgba(70,45,20,.10);
-  --f:"Baloo 2", ui-rounded, "Segoe UI", system-ui, sans-serif;
-  --fb:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --clay:0 6px 0 0 var(--edge), 0 16px 26px rgba(122,72,24,.15), inset 0 2px 0 rgba(255,255,255,.9);
+  --clay-sm:0 4px 0 0 var(--edge), 0 10px 18px rgba(122,72,24,.13), inset 0 2px 0 rgba(255,255,255,.9);
+  --bounce:cubic-bezier(.34,1.56,.64,1);
+  --f:"Varela Round", ui-rounded, system-ui, sans-serif;
+  --fb:"Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--cream);color:var(--body);font-family:var(--fb);font-size:17px;line-height:1.62;overflow-x:hidden}
-h1,h2,h3,.dsp{font-family:var(--f);color:var(--ink);line-height:1.12;letter-spacing:-.01em;font-weight:800}
+body{background:var(--cream);color:var(--body);font-family:var(--fb);font-size:17px;line-height:1.65;overflow-x:hidden}
+h1,h2{font-family:var(--f);color:var(--ink);line-height:1.16;letter-spacing:-.005em;font-weight:400}
+h3{font-family:var(--fb);color:var(--ink);font-size:1.18rem;font-weight:800;line-height:1.3}
 h1{font-size:clamp(2rem,5vw,3.5rem);overflow-wrap:break-word}
 h2{font-size:clamp(1.75rem,4.2vw,2.7rem)}
-h3{font-size:1.2rem;font-weight:700;line-height:1.25}
 p{max-width:62ch}
 img{max-width:100%;display:block}
 a{color:var(--orange-dp)}
 .wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
 section{padding:clamp(4rem,9vw,7rem) 0}
 .skip{position:absolute;left:-999px}
-.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--ink);color:var(--cream);padding:.7rem 1.1rem;border-radius:var(--pill)}
-:focus-visible{outline:3px solid var(--orange-dp);outline-offset:3px;border-radius:4px}
+.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--ink);color:var(--cream);padding:.7rem 1.1rem;border-radius:var(--r-btn)}
+:focus-visible{outline:3px solid var(--trust);outline-offset:3px;border-radius:6px}
 
-/* ---------- botoes ---------- */
+/* ---------- botoes clay ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  padding:.85rem 1.5rem;border-radius:var(--pill);font-family:var(--f);font-weight:700;
-  font-size:1.02rem;white-space:nowrap;border:2px solid transparent;text-decoration:none;
-  transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s,background .18s}
+  padding:.9rem 1.6rem;border-radius:var(--r-btn);font-family:var(--fb);font-weight:800;
+  font-size:1.02rem;white-space:nowrap;border:3px solid transparent;text-decoration:none;
+  transition:transform .16s var(--bounce),box-shadow .16s ease,background .16s ease}
 .btn svg{width:20px;height:20px;flex:none}
-.btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px rgba(15,125,66,.28)}
-.btn-wa:hover{background:#0c6a38;transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,125,66,.34)}
-.btn-ink{background:var(--ink);color:var(--cream)}
-.btn-ink:hover{background:#3a281a;transform:translateY(-2px)}
-.btn-out{background:transparent;color:var(--ink);border-color:var(--line);border-width:2px}
-.btn-out:hover{border-color:var(--ink);transform:translateY(-2px)}
-.btn:active{transform:translateY(0) scale(.985)}
+.btn-wa{background:var(--wa);color:#fff;border-color:#0c6a38;
+  box-shadow:0 6px 0 0 var(--edge-wa), 0 14px 22px rgba(10,90,48,.3), inset 0 2px 0 rgba(255,255,255,.28)}
+.btn-wa:hover{background:#128c4a}
+.btn-ink{background:var(--ink);color:#fff7ed;border-color:#160f08;
+  box-shadow:0 6px 0 0 var(--edge-ink), 0 14px 22px rgba(20,12,5,.28), inset 0 2px 0 rgba(255,255,255,.16)}
+.btn-ink:hover{background:#332415}
+.btn-out{background:var(--card);color:var(--ink);border-color:var(--line);box-shadow:var(--clay-sm)}
+.btn-out:hover{background:#fffdfa}
+/* squish: o botao afunda ate a aresta, que e o que faz parecer objeto */
+.btn:active{transform:translateY(5px)}
+.btn-wa:active{box-shadow:0 1px 0 0 var(--edge-wa), 0 4px 8px rgba(10,90,48,.26), inset 0 2px 0 rgba(255,255,255,.28)}
+.btn-ink:active{box-shadow:0 1px 0 0 var(--edge-ink), 0 4px 8px rgba(20,12,5,.24), inset 0 2px 0 rgba(255,255,255,.16)}
+.btn-out:active{box-shadow:0 1px 0 0 var(--edge), 0 4px 8px rgba(122,72,24,.12), inset 0 2px 0 rgba(255,255,255,.9)}
 
 /* ---------- nav ---------- */
-header{position:sticky;top:0;z-index:40;background:rgba(255,248,240,.92);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:1.4rem;height:72px}
-.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto}
-.brand img{width:44px;height:44px;border-radius:12px}
-.brand b{font-family:var(--f);font-size:1.18rem;color:var(--ink);font-weight:800;letter-spacing:-.02em}
-.nav nav{display:flex;gap:1.5rem}
-.nav nav a{font-family:var(--f);font-weight:600;font-size:.98rem;color:var(--body);text-decoration:none}
-.nav nav a:hover{color:var(--orange-dp)}
-.burger{display:none;width:44px;height:44px;border-radius:12px;background:var(--cream-2);
-  align-items:center;justify-content:center;border:1px solid var(--line);cursor:pointer}
+header{position:sticky;top:0;z-index:40;background:rgba(255,247,237,.94);
+  backdrop-filter:blur(12px);border-bottom:3px solid var(--line)}
+.nav{display:flex;align-items:center;gap:1.4rem;height:76px}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;margin-right:auto}
+.brand img{width:48px;height:48px;border-radius:var(--r-btn);border:3px solid var(--card);
+  box-shadow:0 3px 0 0 var(--edge), 0 8px 14px rgba(122,72,24,.16)}
+.brand b{font-family:var(--f);font-size:1.24rem;color:var(--ink);font-weight:400;letter-spacing:-.01em}
+.nav nav{display:flex;gap:1.4rem}
+.nav nav a{font-weight:700;font-size:.97rem;color:var(--body);text-decoration:none;
+  padding:.3rem 0;border-bottom:3px solid transparent;transition:color .16s,border-color .16s}
+.nav nav a:hover{color:var(--orange-dp);border-bottom-color:var(--orange)}
+.burger{display:none;width:48px;height:48px;border-radius:var(--r-btn);background:var(--card);
+  align-items:center;justify-content:center;border:3px solid var(--line);cursor:pointer;
+  box-shadow:var(--clay-sm);transition:transform .16s var(--bounce),box-shadow .16s}
+.burger:active{transform:translateY(4px);box-shadow:0 0 0 0 var(--edge)}
 .burger svg{width:22px;height:22px}
 
 /* ---------- hero ---------- */
@@ -161,73 +181,136 @@ header{position:sticky;top:0;z-index:40;background:rgba(255,248,240,.92);
 /* sublinhado da marca: gradiente no proprio span, acompanha a quebra de linha
    sem precisar de position/z-index e sem travar o texto com nowrap */
 .hero h1 .u{
-  background:linear-gradient(transparent 62%, rgba(250,116,1,.30) 62%, rgba(250,116,1,.30) 88%, transparent 88%);
+  background:linear-gradient(transparent 62%, rgba(250,116,1,.32) 62%, rgba(250,116,1,.32) 90%, transparent 90%);
   -webkit-box-decoration-break:clone;box-decoration-break:clone}
-.hero p{font-size:1.1rem;color:var(--muted);margin-bottom:1.9rem;max-width:34ch}
-.hero-cta{display:flex;gap:.75rem;flex-wrap:wrap}
-.hero-img{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);
-  aspect-ratio:3/4;background:var(--cream-2)}
+.hero p{font-size:1.12rem;color:var(--muted);margin-bottom:1.9rem;max-width:34ch}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.hero-img{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;
+  background:var(--cream-2);border:5px solid var(--card);
+  box-shadow:0 8px 0 0 var(--edge), 0 22px 38px rgba(122,72,24,.2)}
 .hero-img img{width:100%;height:100%;object-fit:cover}
 
-/* ---------- faixa de dados ---------- */
-.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream-2)}
-.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
-.fact{background:var(--cream-2);padding:1.5rem .4rem;display:flex;gap:.85rem;align-items:flex-start}
-.fact svg{width:24px;height:24px;flex:none;color:var(--orange-dp);margin-top:.15rem}
-.fact span{display:block;font-size:.84rem;color:var(--muted);letter-spacing:.02em}
-.fact b{font-family:var(--f);font-size:1.05rem;color:var(--ink);font-weight:700;line-height:1.3}
+/* ---------- faixa de dados (azul de confianca da skill) ---------- */
+.facts{padding:0 0 clamp(2rem,5vw,3.5rem)}
+.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.fact{background:var(--card);border:3px solid var(--line);border-radius:var(--r);
+  padding:1.35rem 1.3rem;display:flex;gap:.9rem;align-items:flex-start;box-shadow:var(--clay-sm)}
+.fact svg{width:26px;height:26px;flex:none;color:var(--trust);margin-top:.15rem}
+.fact span{display:block;font-size:.82rem;color:var(--muted);font-weight:600;letter-spacing:.02em}
+.fact b{font-family:var(--fb);font-size:1.02rem;color:var(--ink);font-weight:800;line-height:1.35}
 .fact a{color:var(--ink);text-decoration:none}
-.fact a:hover{color:var(--orange-dp)}
+.fact a:hover{color:var(--trust);text-decoration:underline}
 
-/* ---------- secao granel ---------- */
-.granel{background:var(--ink);color:#f3e7d8}
+/* ---------- secao granel: slab escuro ---------- */
+.granel{background:transparent;color:#f6e9da;padding-block:clamp(1rem,3vw,2rem)}
+.granel .wrap{background:var(--ink);border-radius:var(--r-lg);
+  padding:clamp(2rem,5vw,3.6rem);border:4px solid #180f07;
+  box-shadow:0 8px 0 0 var(--edge-ink), 0 26px 44px rgba(20,12,5,.3), inset 0 2px 0 rgba(255,255,255,.12)}
 .granel h2{color:#fff}
-.granel-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-.granel-img{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.granel-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.granel-img{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;border:4px solid #2f2114;
+  box-shadow:0 6px 0 0 #0a0704, 0 18px 32px rgba(0,0,0,.42)}
 .granel-img img{width:100%;height:100%;object-fit:cover}
-.granel p{color:#d9c9b6;font-size:1.08rem;margin:1.1rem 0 1.6rem}
-.marcas{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
-.marca{font-family:var(--f);font-weight:600;font-size:.92rem;color:#f3e7d8;
-  border:1px solid rgba(243,231,216,.26);padding:.4rem .9rem;border-radius:var(--pill)}
+.granel p{color:#dbcab6;font-size:1.08rem;margin:1.1rem 0 1.6rem}
+.marcas{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:2rem}
+.marca{font-weight:700;font-size:.9rem;color:#f6e9da;background:rgba(255,255,255,.07);
+  border:2px solid rgba(246,233,218,.24);padding:.45rem .95rem;border-radius:var(--r-btn)}
 
 /* ---------- bento loja ---------- */
 .head-s{margin-bottom:2.8rem;max-width:56ch}
 .head-s p{color:var(--muted);margin-top:.8rem;font-size:1.06rem}
-.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(170px,auto);gap:1rem}
-.bento>*{border-radius:var(--r);padding:1.6rem;border:1px solid var(--line);background:var(--card)}
-.b-img{grid-row:span 2;padding:0;overflow:hidden;border:none}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(180px,auto);gap:1.1rem}
+.bento>*{border-radius:var(--r);padding:1.7rem;border:3px solid var(--line);
+  background:var(--card);box-shadow:var(--clay-sm)}
+.b-img{grid-row:span 2;padding:0;overflow:hidden;border:4px solid var(--card);
+  box-shadow:0 6px 0 0 var(--edge), 0 18px 30px rgba(122,72,24,.18)}
 .b-img img{width:100%;height:100%;object-fit:cover;min-height:340px}
 .b-tint{background:var(--cream-2)}
-.b-dark{background:var(--ink);border-color:var(--ink)}
-.b-dark h3{color:#fff}.b-dark p{color:#d9c9b6}
+.b-dark{background:var(--ink);border-color:#180f07;
+  box-shadow:0 4px 0 0 var(--edge-ink), 0 12px 22px rgba(20,12,5,.26), inset 0 2px 0 rgba(255,255,255,.12)}
 .bento h3{margin-bottom:.5rem}
 .bento p{font-size:.98rem;color:var(--muted)}
-.bento .ico{width:34px;height:34px;color:var(--orange-dp);margin-bottom:.9rem}
+/* precisa vir depois de .bento p: mesma especificidade, quem vier por ultimo ganha.
+   Sem isso o texto do cartao escuro herdava a cor do tema claro (2.64:1). */
+.bento .b-dark h3{color:#fff}
+.bento .b-dark p{color:#dbcab6}
+.bento .ico{width:38px;height:38px;color:var(--orange-dp);margin-bottom:1rem}
 .b-dark .ico{color:var(--orange)}
 
 /* ---------- stories dos clientes ----------
    O anel usa o laranja da propria marca, nao o gradiente do Instagram:
    a forma e o comportamento ja dizem "stories" sem furar a paleta. */
 .stories{list-style:none;display:flex;gap:clamp(.9rem,2.4vw,1.7rem);flex-wrap:wrap}
-.stories button{display:flex;flex-direction:column;align-items:center;gap:.6rem;
+.stories button{display:flex;flex-direction:column;align-items:center;gap:.7rem;
   background:none;border:0;padding:0;cursor:pointer;width:clamp(78px,15vw,124px)}
-.ring{display:block;width:100%;aspect-ratio:1;border-radius:var(--pill);padding:3px;
+.ring{display:block;width:100%;aspect-ratio:1;border-radius:var(--pill);padding:4px;
   background:conic-gradient(from 140deg,var(--orange),#ffbe80,var(--orange-dp),var(--orange));
-  transition:transform .2s cubic-bezier(.16,1,.3,1)}
+  box-shadow:0 5px 0 0 var(--edge), 0 12px 20px rgba(122,72,24,.2);
+  transition:transform .18s var(--bounce),box-shadow .18s}
 .ring img{width:100%;height:100%;border-radius:var(--pill);object-fit:cover;
-  border:3px solid var(--cream);background:var(--cream-2)}
-.stories button:hover .ring,.stories button:focus-visible .ring{transform:scale(1.05)}
-.stories button:active .ring{transform:scale(.97)}
-.stories .nome{font-family:var(--f);font-weight:700;font-size:.92rem;color:var(--ink);
-  text-align:center;line-height:1.2}
-.stories-note{margin-top:1.8rem;font-size:.94rem;color:var(--muted)}
+  border:4px solid var(--cream);background:var(--cream-2)}
+.stories button:hover .ring,.stories button:focus-visible .ring{transform:translateY(-3px);
+  box-shadow:0 8px 0 0 var(--edge), 0 18px 26px rgba(122,72,24,.24)}
+.stories button:active .ring{transform:translateY(4px);box-shadow:0 1px 0 0 var(--edge), 0 4px 8px rgba(122,72,24,.16)}
+.stories .nome{font-weight:800;font-size:.92rem;color:var(--ink);text-align:center;line-height:1.25}
+.stories-note{margin-top:1.9rem;font-size:.95rem;color:var(--muted)}
+
+/* ---------- tosa ---------- */
+.tosa-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.tosa-img{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;border:5px solid var(--card);
+  box-shadow:0 8px 0 0 var(--edge), 0 22px 38px rgba(122,72,24,.2)}
+.tosa-img img{width:100%;height:100%;object-fit:cover}
+.checks{list-style:none;margin:1.5rem 0 2rem;display:grid;gap:.9rem}
+.checks li{display:flex;gap:.8rem;align-items:center;font-size:1.03rem;font-weight:600}
+.checks svg{width:16px;height:16px;color:#fff;flex:none}
+.checks .mk{width:30px;height:30px;flex:none;border-radius:10px;background:var(--wa);
+  display:grid;place-items:center;box-shadow:0 3px 0 0 var(--edge-wa)}
+
+/* ---------- onde fica ---------- */
+.onde{background:var(--cream-2);border-block:3px solid var(--line)}
+.onde-g{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.mapa{border-radius:var(--r-lg);overflow:hidden;border:5px solid var(--card);
+  box-shadow:0 8px 0 0 var(--edge), 0 20px 34px rgba(122,72,24,.18);
+  aspect-ratio:4/3;background:var(--cream)}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+.horario{list-style:none;margin:1.6rem 0 2rem;background:var(--card);border:3px solid var(--line);
+  border-radius:var(--r);padding:.4rem 1.2rem;box-shadow:var(--clay-sm)}
+.horario li{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 0;
+  border-bottom:2px solid var(--cream-2);font-size:1.02rem}
+.horario li:last-child{border-bottom:0}
+.horario b{font-weight:800;color:var(--ink)}
+
+/* ---------- cta final ---------- */
+.final{padding-block:clamp(2rem,5vw,3rem)}
+.final .wrap{background:var(--ink);color:#f6e9da;text-align:center;border-radius:var(--r-lg);
+  padding:clamp(2.6rem,6vw,4.4rem) clamp(1.5rem,4vw,3rem);border:4px solid #180f07;
+  box-shadow:0 8px 0 0 var(--edge-ink), 0 26px 44px rgba(20,12,5,.3), inset 0 2px 0 rgba(255,255,255,.12)}
+.final h2{color:#fff;max-width:20ch;margin:0 auto 1rem}
+.final p{color:#dbcab6;max-width:46ch;margin:0 auto 2rem;font-size:1.08rem}
+
+/* ---------- footer ---------- */
+footer{background:var(--cream-2);color:var(--muted);padding:2.6rem 0;
+  border-top:3px solid var(--line);font-size:.95rem}
+.foot{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.foot a{color:var(--ink);text-decoration:none;font-weight:700}
+.foot a:hover{color:var(--orange-dp);text-decoration:underline}
+.foot-b{display:flex;gap:1.3rem;flex-wrap:wrap;align-items:center}
+
+/* ---------- whatsapp flutuante ---------- */
+.float{position:fixed;right:1.1rem;bottom:1.1rem;z-index:50;width:62px;height:62px;
+  border-radius:20px;background:var(--wa);display:grid;place-items:center;border:3px solid #0c6a38;
+  box-shadow:0 6px 0 0 var(--edge-wa), 0 14px 24px rgba(10,90,48,.36), inset 0 2px 0 rgba(255,255,255,.28);
+  transition:transform .18s var(--bounce),box-shadow .18s}
+.float:hover{transform:translateY(-3px);box-shadow:0 9px 0 0 var(--edge-wa), 0 20px 30px rgba(10,90,48,.4), inset 0 2px 0 rgba(255,255,255,.28)}
+.float:active{transform:translateY(5px);box-shadow:0 1px 0 0 var(--edge-wa), 0 4px 8px rgba(10,90,48,.3), inset 0 2px 0 rgba(255,255,255,.28)}
+.float svg{width:31px;height:31px;color:#fff}
 
 /* ---------- visualizador de stories ---------- */
 .sv{position:fixed;inset:0;z-index:80;background:#0d0906;display:none;
   align-items:center;justify-content:center;padding:clamp(0px,3vh,2rem) 1rem}
 .sv.on{display:flex}
 .sv-frame{position:relative;width:min(430px,100%);max-height:94vh;aspect-ratio:387/565;
-  background:#1a120b;border-radius:clamp(0px,2vw,var(--r));overflow:hidden;
+  background:#1a120b;border-radius:clamp(0px,2vw,var(--r-lg));overflow:hidden;
   display:flex;align-items:center;justify-content:center}
 .sv-frame>img{width:100%;height:100%;object-fit:contain}
 .sv-bars{position:absolute;top:.55rem;left:.55rem;right:.55rem;z-index:3;display:flex;gap:4px}
@@ -239,68 +322,37 @@ header{position:sticky;top:0;z-index:40;background:rgba(255,248,240,.92);
 .sv-top{position:absolute;top:1.35rem;left:.75rem;right:.75rem;z-index:3;
   display:flex;align-items:center;gap:.6rem;
   background:linear-gradient(180deg,rgba(0,0,0,.45),transparent);padding:.35rem .3rem 1.4rem}
-.sv-top img{width:34px;height:34px;border-radius:var(--pill);border:2px solid rgba(255,255,255,.85)}
-.sv-top span{font-family:var(--f);font-weight:700;font-size:.92rem;color:#fff;
-  text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.sv-top img{width:36px;height:36px;border-radius:var(--pill);border:2px solid rgba(255,255,255,.85)}
+.sv-top span{font-weight:800;font-size:.92rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
 .sv-top .quem{margin-right:auto}
-.sv-x{width:44px;height:44px;border-radius:var(--pill);background:rgba(0,0,0,.38);
+.sv-x{width:44px;height:44px;border-radius:14px;background:rgba(0,0,0,.4);
   color:#fff;font-size:1.6rem;line-height:1;border:0;cursor:pointer;display:grid;place-items:center}
-.sv-x:hover{background:rgba(0,0,0,.62)}
+.sv-x:hover{background:rgba(0,0,0,.64)}
 .sv-zona{position:absolute;top:0;bottom:0;z-index:2;border:0;background:transparent;cursor:pointer}
 .sv-zona.ante{left:0;width:32%}
 .sv-zona.prox{right:0;width:68%}
 .sv-seta{position:absolute;top:50%;transform:translateY(-50%);z-index:4;
-  width:46px;height:46px;border-radius:var(--pill);background:rgba(255,255,255,.14);
+  width:48px;height:48px;border-radius:16px;background:rgba(255,255,255,.15);
   color:#fff;border:0;cursor:pointer;display:none;place-items:center}
-.sv-seta:hover{background:rgba(255,255,255,.26)}
+.sv-seta:hover{background:rgba(255,255,255,.28)}
 .sv-seta svg{width:22px;height:22px}
 .sv-seta.e{left:max(1rem,calc(50vw - 300px))}
 .sv-seta.d{right:max(1rem,calc(50vw - 300px))}
 @media (min-width:800px) and (hover:hover){.sv-seta{display:grid}}
-
-/* ---------- tosa ---------- */
-.tosa-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-.tosa-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow)}
-.tosa-img img{width:100%;height:100%;object-fit:cover}
-.checks{list-style:none;margin:1.4rem 0 2rem;display:grid;gap:.85rem}
-.checks li{display:flex;gap:.75rem;align-items:flex-start;font-size:1.03rem}
-.checks svg{width:22px;height:22px;color:var(--wa);flex:none;margin-top:.2rem}
-
-/* ---------- onde fica ---------- */
-.onde{background:var(--cream-2);border-top:1px solid var(--line)}
-.onde-g{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
-.mapa{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
-  box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--cream)}
-.mapa iframe{width:100%;height:100%;border:0;display:block}
-.horario{list-style:none;margin:1.5rem 0 2rem;border-top:1px solid var(--line)}
-.horario li{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 0;
-  border-bottom:1px solid var(--line);font-size:1.02rem}
-.horario b{font-family:var(--f);color:var(--ink);font-weight:700}
-
-/* ---------- cta final ---------- */
-.final{background:var(--ink);color:#f3e7d8;text-align:center}
-.final h2{color:#fff;max-width:20ch;margin:0 auto 1rem}
-.final p{color:#d9c9b6;max-width:46ch;margin:0 auto 2rem;font-size:1.08rem}
-
-/* ---------- footer ---------- */
-footer{background:var(--ink);color:#b9a894;padding:2.5rem 0;border-top:1px solid rgba(243,231,216,.14);font-size:.94rem}
-.foot{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
-.foot a{color:#f3e7d8;text-decoration:none}
-.foot a:hover{text-decoration:underline}
-.foot-b{display:flex;gap:1.3rem;flex-wrap:wrap;align-items:center}
-
-/* ---------- whatsapp flutuante ---------- */
-.float{position:fixed;right:1.1rem;bottom:1.1rem;z-index:50;width:58px;height:58px;
-  border-radius:var(--pill);background:var(--wa);display:grid;place-items:center;
-  box-shadow:0 10px 28px rgba(15,125,66,.42);transition:transform .2s}
-.float:hover{transform:scale(1.07)}
-.float svg{width:31px;height:31px;color:#fff}
 
 /* ---------- reveal (MOTION_INTENSITY 4) ----------
    so esconde se o JS estiver vivo (classe .js no <html>). Sem JS,
    ou se o script quebrar, a pagina aparece inteira em vez de ficar em branco. */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .js .rv.in{opacity:1;transform:none}
+
+/* ---------- area de toque ----------
+   Link de texto tem altura de linha, nao 44px. Em vez de inchar o layout
+   com padding, estende so a area clicavel com um pseudo elemento. */
+.nav nav a,.foot a,.fact a,.stories-note a{position:relative}
+.nav nav a::after,.foot a::after,.fact a::after,.stories-note a::after{
+  content:"";position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+  height:max(44px,100%)}
 
 /* ---------- responsivo ---------- */
 @media (max-width:960px){
@@ -320,17 +372,18 @@ footer{background:var(--ink);color:#b9a894;padding:2.5rem 0;border-top:1px solid
    entao ele vira hamburguer aqui, nao so no breakpoint de celular */
 @media (max-width:900px){
   .nav nav{display:none}
-  .nav nav.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;
-    gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1.1rem}
-  .nav nav.open a{padding:.85rem 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .nav nav.open{display:flex;position:absolute;top:76px;left:0;right:0;flex-direction:column;
+    gap:0;background:var(--cream);border-bottom:3px solid var(--line);padding:.5rem 1.25rem 1.1rem}
+  .nav nav.open a{padding:.9rem 0;border-bottom:2px solid var(--cream-2);font-size:1.05rem}
   .burger{display:flex}
 }
 @media (max-width:720px){
   body{font-size:16px}
   .nav .btn-wa{display:none}
   .facts .wrap{grid-template-columns:1fr}
-  .fact{padding:1.15rem .2rem}
   .bento{grid-template-columns:1fr}
+  .hero-cta .btn{flex:1 1 100%}
+  .float{width:58px;height:58px;right:.9rem;bottom:.9rem}
   /* no celular a fileira de stories rola na horizontal, igual ao Instagram */
   .stories{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
     padding-bottom:.5rem;margin-inline:-1.25rem;padding-inline:1.25rem;scrollbar-width:none}
@@ -339,13 +392,11 @@ footer{background:var(--ink);color:#b9a894;padding:2.5rem 0;border-top:1px solid
   /* e o story ocupa a tela inteira, em vez de deixar tarja preta em volta */
   .sv{padding:0}
   .sv-frame{width:100%;height:100%;max-height:none;aspect-ratio:auto;border-radius:0}
-  .hero-cta .btn{flex:1 1 100%}
-  .float{width:54px;height:54px;right:.9rem;bottom:.9rem}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none}
+  .js .rv{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -360,7 +411,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
 <header>
   <div class="wrap nav">
     <a class="brand" href="#topo">
-      <img src="img/logo.png" alt="" width="44" height="44">
+      <img src="../img/logo.png" alt="" width="44" height="44">
       <b>AUAUmigão</b>
     </a>
     <nav id="menu">
@@ -397,7 +448,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
       </div>
     </div>
     <div class="hero-img">
-      <img src="img/fachada.webp" width="765" height="1020" fetchpriority="high"
+      <img src="../img/fachada.webp" width="765" height="1020" fetchpriority="high"
            alt="Fachada do AUAUmigão Petshop na R. Altemar Dutra, com vitrine de vidro e sacos de ração na entrada.">
     </div>
   </div>
@@ -428,10 +479,10 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
       <h2>Banho e tosa com hora marcada.</h2>
       <p>Seu pet sai limpo, cheiroso e com gravatinha. E ainda vira estrela do nosso Instagram, se você deixar.</p>
       <ul class="checks">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Banho, secagem e escovação</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Tosa higiênica e tosa completa</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Cães e gatos, de todos os portes</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Agendamento pelo WhatsApp</li>
+        <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> Banho, secagem e escovação</li>
+        <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> Tosa higiênica e tosa completa</li>
+        <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> Cães e gatos, de todos os portes</li>
+        <li><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span> Agendamento pelo WhatsApp</li>
       </ul>
       <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20queria%20agendar%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
@@ -439,7 +490,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
       </a>
     </div>
     <div class="tosa-img rv">
-      <img src="img/banho-tosa.webp" width="860" height="1528" loading="lazy"
+      <img src="../img/banho-tosa.webp" width="860" height="1528" loading="lazy"
            alt="Magali, lulu da pomerânia preta e branca, recém-tosada e com laço amarelo, na sala de banho e tosa do AUAUmigão.">
     </div>
   </div>
@@ -456,19 +507,19 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
          colocou. O <ul> segue navegavel por teclado se o JS nao carregar. -->
     <ul class="stories rv" id="stories">
       <li><button type="button" data-story="0">
-        <span class="ring"><img src="img/billy.jpg" width="382" height="268" loading="lazy" alt=""></span>
+        <span class="ring"><img src="../img/billy.jpg" width="382" height="268" loading="lazy" alt=""></span>
         <span class="nome">Billy</span></button></li>
       <li><button type="button" data-story="1">
-        <span class="ring"><img src="img/bob.jpg" width="252" height="266" loading="lazy" alt=""></span>
+        <span class="ring"><img src="../img/bob.jpg" width="252" height="266" loading="lazy" alt=""></span>
         <span class="nome">Bob e Thor</span></button></li>
       <li><button type="button" data-story="2">
-        <span class="ring"><img src="img/pepita.jpg" width="193" height="240" loading="lazy" alt=""></span>
+        <span class="ring"><img src="../img/pepita.jpg" width="193" height="240" loading="lazy" alt=""></span>
         <span class="nome">Pepita e Akira</span></button></li>
       <li><button type="button" data-story="3">
-        <span class="ring"><img src="img/magali.jpg" width="388" height="450" loading="lazy" alt=""></span>
+        <span class="ring"><img src="../img/magali.jpg" width="388" height="450" loading="lazy" alt=""></span>
         <span class="nome">Magali</span></button></li>
       <li><button type="button" data-story="4">
-        <span class="ring"><img src="img/fiuk.jpg" width="193" height="256" loading="lazy" alt=""></span>
+        <span class="ring"><img src="../img/fiuk.jpg" width="193" height="256" loading="lazy" alt=""></span>
         <span class="nome">Fiuk</span></button></li>
     </ul>
     <p class="stories-note rv">Toque em um pet para ver as fotos. Tem mais no Instagram da loja: <a href="https://www.instagram.com/petshop.auaumigao/" target="_blank" rel="noopener">@petshop.auaumigao</a></p>
@@ -479,7 +530,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
 <section class="granel" id="granel">
   <div class="wrap granel-g">
     <div class="granel-img rv">
-      <img src="img/racao-granel.webp" width="765" height="1020" loading="lazy"
+      <img src="../img/racao-granel.webp" width="765" height="1020" loading="lazy"
            alt="Parede com dezenas de dispensers de ração a granel de várias marcas dentro do AUAUmigão Petshop.">
     </div>
     <div class="rv">
@@ -514,7 +565,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
     </div>
     <div class="bento">
       <div class="b-img rv">
-        <img src="img/loja.webp" width="765" height="1020" loading="lazy"
+        <img src="../img/loja.webp" width="765" height="1020" loading="lazy"
              alt="Interior do AUAUmigão com prateleiras de petiscos, caminhas, arranhadores e tapetes higiênicos.">
       </div>
       <div class="b-tint rv">
@@ -603,7 +654,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
   <div class="sv-frame">
     <div class="sv-bars" id="svBars"></div>
     <div class="sv-top">
-      <img src="img/logo.png" width="34" height="34" alt="">
+      <img src="../img/logo.png" width="34" height="34" alt="">
       <span class="quem">petshop.auaumigao</span>
       <button class="sv-x" id="svX" aria-label="Fechar">&times;</button>
     </div>
@@ -652,11 +703,11 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
   // barra de responder do Instagram. O cronometro so roda se o usuario aceitar
   // movimento; com prefers-reduced-motion ele avanca so no toque.
   var STORIES = [
-    {src:"img/story-1.webp", alt:"Story da loja: Billy, cachorro de pelo creme, sendo penteado e depois pronto com gravata borboleta azul."},
-    {src:"img/story-2.webp", alt:"Story da loja: Bob, cachorro cinza com gravata borboleta amarela, e Thor, preto e branco com gravata estampada."},
-    {src:"img/story-3.webp", alt:"Story da loja: Pepita, pug, e Akira, cachorro dourado, as duas com lacinho vermelho. As meninas de sabado."},
-    {src:"img/story-4.webp", alt:"Story da loja: Magali, lulu da pomerania preta e branca, com laco amarelo."},
-    {src:"img/story-5.webp", alt:"Story da loja: Fiuk, spitz alemao branco, com bandana colorida, em quatro poses."}
+    {src:"../img/story-1.webp", alt:"Story da loja: Billy, cachorro de pelo creme, sendo penteado e depois pronto com gravata borboleta azul."},
+    {src:"../img/story-2.webp", alt:"Story da loja: Bob, cachorro cinza com gravata borboleta amarela, e Thor, preto e branco com gravata estampada."},
+    {src:"../img/story-3.webp", alt:"Story da loja: Pepita, pug, e Akira, cachorro dourado, as duas com lacinho vermelho. As meninas de sabado."},
+    {src:"../img/story-4.webp", alt:"Story da loja: Magali, lulu da pomerania preta e branca, com laco amarelo."},
+    {src:"../img/story-5.webp", alt:"Story da loja: Fiuk, spitz alemao branco, com bandana colorida, em quatro poses."}
   ];
   var DUR = 6000;
   var sv = document.getElementById("sv"), svImg = document.getElementById("svImg"),
