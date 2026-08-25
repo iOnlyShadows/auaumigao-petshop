@@ -35,8 +35,14 @@ Ver o bloco `CONFIRMAR COM O CLIENTE` no início do `index.html`. Em resumo:
 
 ## Design
 
-Paleta extraída da própria logo da loja: creme `#fff8f0` e laranja `#fa7401`. O laranja da marca reprova contraste como texto (2,64:1 sobre o creme), então aparece só como elemento gráfico. Textos e botões usam tons verificados em WCAG AA, documentados no topo do CSS.
+Estilo **Claymorphism** (variante web), escolhido pela skill ui-ux-pro-max a partir de "pet shop local business grooming warm friendly". Superfícies macias e tácteis: borda de 3px, raio grande, sombra dupla com aresta sólida embaixo, e o elemento afundando até a aresta ao ser pressionado. É a aresta que faz parecer objeto, não a sombra difusa.
 
-Tipografia: Baloo 2 nos títulos, escolhida por acompanhar o traço arredondado do wordmark da loja. Corpo em fonte de sistema, sem requisição extra.
+Paleta ainda vem da logo da loja (creme , laranja ). A skill sugeriu  como cor primária e  como azul de confiança. Medi os dois: o laranja reprova como texto (2,64:1) e até com branco por cima (2,8:1), então segue sendo apenas gráfico, como o próprio checklist da skill exige (mínimo 4,5:1). O azul passa nos dois sentidos e entrou, restrito à faixa de dados de contato.
 
-Motion contido de propósito: o público abre isso em celular popular no 4G. O reveal só roda se o JS estiver vivo, então uma falha de script mostra a página inteira em vez de deixá-la em branco. Tudo respeita `prefers-reduced-motion`.
+Tipografia: **Varela Round** nos títulos e **Nunito Sans** no corpo, o par que a skill recomenda para produtos pet.
+
+Escala de raio em três níveis: superfície 28px, cartão 22px, botão 16px. Círculo só em avatar e anel de story.
+
+Área de toque de todos os 30 elementos interativos chega a 44px. Nos links de texto isso é feito com pseudo-elemento, para não inchar o layout.
+
+Motion contido de propósito: o público abre isso em celular popular no 4G. Micro-interações em 160 a 180ms com curva de mola. O reveal só roda se o JS estiver vivo, então uma falha de script mostra a página inteira em vez de deixá-la em branco. Tudo respeita `prefers-reduced-motion`.
