@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>AUAUmigão Petshop | Ração a granel, banho e tosa no Bairro Brasília, Cascavel PR</title>
+<meta name="description" content="Petshop no Bairro Brasília, em Cascavel. Ração a granel de mais de 40 marcas, acessórios, banho e tosa. Fale no WhatsApp: (45) 99946-6447.">
+<link rel="canonical" href="https://auaumigao-petshop.vercel.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="AUAUmigão Petshop">
+<meta property="og:title" content="AUAUmigão Petshop | Bairro Brasília, Cascavel PR">
+<meta property="og:description" content="Ração a granel, acessórios, banho e tosa. Amor que late e mia por você.">
+<meta property="og:image" content="img/fachada.webp">
+<link rel="icon" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+
+<!--
+  ============================================================
+  CONFIRMAR COM O CLIENTE ANTES DE PUBLICAR
+  ------------------------------------------------------------
+  1. HORARIO DE FUNCIONAMENTO. Esta na pagina como Seg a Sex
+     8h as 19h e Sab 8h as 14h. NAO foi confirmado com a loja.
+  2. FORMAS DE PAGAMENTO. Nao ha nenhuma citada na pagina de
+     proposito, porque nao foi possivel confirmar.
+  3. SERVICOS DE BANHO E TOSA. A pagina afirma apenas o que as
+     fotos do Instagram provam. Confirmar se fazem tosa na
+     tesoura, hidratacao, corte de unha e leva e traz.
+  4. NOTA DO GOOGLE. Nao foi incluida por nao ter sido
+     verificada. Se a loja informar, entra no JSON-LD como
+     aggregateRating.
+  5. GEOLOCALIZACAO. As coordenadas foram removidas do JSON-LD
+     porque as anteriores eram estimadas. Pegar as reais no
+     Google Maps antes de publicar.
+  6. FOTOS. Todas as imagens sao reais, vindas da fachada da
+     loja e do perfil @petshop.auaumigao. Os cachorros da
+     galeria sao clientes reais publicados pela propria loja
+     nos stories. Pedir autorizacao de uso antes de publicar.
+  ============================================================
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PetStore",
+  "name": "AUAUmigão Petshop",
+  "slogan": "Amor que late e mia por você.",
+  "image": "img/fachada.webp",
+  "telephone": "+5545999466447",
+  "sameAs": ["https://www.instagram.com/petshop.auaumigao/"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Altemar Dutra, 677",
+    "addressLocality": "Cascavel",
+    "addressRegion": "PR",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00" }
+  ]
+}
+</script>
+
+<style>
+/* ------------------------------------------------------------------
+   Paleta extraida da logo real da loja (img/logo.png):
+   creme #fff8f0 = fundo da logo, laranja #fa7401 = wordmark.
+   O laranja da marca reprova contraste como texto (2.64:1 no creme),
+   entao ele e usado so como elemento grafico. Texto e botoes usam
+   os tons verificados abaixo.
+   Raio: superficies e imagens 16px, botoes pilula. Uma regra so.
+   ------------------------------------------------------------------ */
+:root{
+  --cream:#fff8f0;
+  --cream-2:#fdf1e4;
+  --card:#ffffff;
+  --ink:#24190f;        /* branco por cima = 17.2:1 AAA */
+  --body:#3f3126;       /* no creme = 11.9:1 AAA */
+  --muted:#6b5b4a;      /* no creme = 6.2:1  AA  */
+  --line:#e9dbc9;
+  --orange:#fa7401;     /* grafico apenas, nunca texto */
+  --orange-dp:#b45300;  /* branco por cima = 5.0:1 AA */
+  --wa:#0f7d42;         /* branco por cima = 5.2:1 AA */
+  --r:16px;
+  --pill:999px;
+  --shadow:0 10px 30px rgba(70,45,20,.10);
+  --f:"Baloo 2", ui-rounded, "Segoe UI", system-ui, sans-serif;
+  --fb:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--cream);color:var(--body);font-family:var(--fb);font-size:17px;line-height:1.62;overflow-x:hidden}
+h1,h2,h3,.dsp{font-family:var(--f);color:var(--ink);line-height:1.12;letter-spacing:-.01em;font-weight:800}
+h1{font-size:clamp(2rem,5vw,3.5rem);overflow-wrap:break-word}
+h2{font-size:clamp(1.75rem,4.2vw,2.7rem)}
+h3{font-size:1.2rem;font-weight:700;line-height:1.25}
+p{max-width:62ch}
+img{max-width:100%;display:block}
+a{color:var(--orange-dp)}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(4rem,9vw,7rem) 0}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--ink);color:var(--cream);padding:.7rem 1.1rem;border-radius:var(--pill)}
+:focus-visible{outline:3px solid var(--orange-dp);outline-offset:3px;border-radius:4px}
+
+/* ---------- botoes ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.85rem 1.5rem;border-radius:var(--pill);font-family:var(--f);font-weight:700;
+  font-size:1.02rem;white-space:nowrap;border:2px solid transparent;text-decoration:none;
+  transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s,background .18s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px rgba(15,125,66,.28)}
+.btn-wa:hover{background:#0c6a38;transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,125,66,.34)}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.btn-ink:hover{background:#3a281a;transform:translateY(-2px)}
+.btn-out{background:transparent;color:var(--ink);border-color:var(--line);border-width:2px}
+.btn-out:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.985)}
+
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:40;background:rgba(255,248,240,.92);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:1.4rem;height:72px}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto}
+.brand img{width:44px;height:44px;border-radius:12px}
+.brand b{font-family:var(--f);font-size:1.18rem;color:var(--ink);font-weight:800;letter-spacing:-.02em}
+.nav nav{display:flex;gap:1.5rem}
+.nav nav a{font-family:var(--f);font-weight:600;font-size:.98rem;color:var(--body);text-decoration:none}
+.nav nav a:hover{color:var(--orange-dp)}
+.burger{display:none;width:44px;height:44px;border-radius:12px;background:var(--cream-2);
+  align-items:center;justify-content:center;border:1px solid var(--line);cursor:pointer}
+.burger svg{width:22px;height:22px}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(2.5rem,5vw,4rem);padding-bottom:clamp(3rem,6vw,5rem)}
+.hero-g{display:grid;grid-template-columns:1.05fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero-g>*,.granel-g>*,.tosa-g>*,.onde-g>*{min-width:0}
+.hero h1{margin-bottom:1.1rem}
+/* sublinhado da marca: gradiente no proprio span, acompanha a quebra de linha
+   sem precisar de position/z-index e sem travar o texto com nowrap */
+.hero h1 .u{
+  background:linear-gradient(transparent 62%, rgba(250,116,1,.30) 62%, rgba(250,116,1,.30) 88%, transparent 88%);
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero p{font-size:1.1rem;color:var(--muted);margin-bottom:1.9rem;max-width:34ch}
+.hero-cta{display:flex;gap:.75rem;flex-wrap:wrap}
+.hero-img{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);
+  aspect-ratio:3/4;background:var(--cream-2)}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- faixa de dados ---------- */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream-2)}
+.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.fact{background:var(--cream-2);padding:1.5rem .4rem;display:flex;gap:.85rem;align-items:flex-start}
+.fact svg{width:24px;height:24px;flex:none;color:var(--orange-dp);margin-top:.15rem}
+.fact span{display:block;font-size:.84rem;color:var(--muted);letter-spacing:.02em}
+.fact b{font-family:var(--f);font-size:1.05rem;color:var(--ink);font-weight:700;line-height:1.3}
+.fact a{color:var(--ink);text-decoration:none}
+.fact a:hover{color:var(--orange-dp)}
+
+/* ---------- secao granel ---------- */
+.granel{background:var(--ink);color:#f3e7d8}
+.granel h2{color:#fff}
+.granel-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.granel-img{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.granel-img img{width:100%;height:100%;object-fit:cover}
+.granel p{color:#d9c9b6;font-size:1.08rem;margin:1.1rem 0 1.6rem}
+.marcas{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.marca{font-family:var(--f);font-weight:600;font-size:.92rem;color:#f3e7d8;
+  border:1px solid rgba(243,231,216,.26);padding:.4rem .9rem;border-radius:var(--pill)}
+
+/* ---------- bento loja ---------- */
+.head-s{margin-bottom:2.8rem;max-width:56ch}
+.head-s p{color:var(--muted);margin-top:.8rem;font-size:1.06rem}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(170px,auto);gap:1rem}
+.bento>*{border-radius:var(--r);padding:1.6rem;border:1px solid var(--line);background:var(--card)}
+.b-img{grid-row:span 2;padding:0;overflow:hidden;border:none}
+.b-img img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.b-tint{background:var(--cream-2)}
+.b-dark{background:var(--ink);border-color:var(--ink)}
+.b-dark h3{color:#fff}.b-dark p{color:#d9c9b6}
+.bento h3{margin-bottom:.5rem}
+.bento p{font-size:.98rem;color:var(--muted)}
+.bento .ico{width:34px;height:34px;color:var(--orange-dp);margin-bottom:.9rem}
+.b-dark .ico{color:var(--orange)}
+
+/* ---------- galeria clientes ---------- */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.gal figure{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1;
+  background:var(--cream-2);cursor:zoom-in;border:1px solid var(--line)}
+.gal figure.tall{grid-row:span 2;aspect-ratio:auto}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:.65rem;bottom:.6rem;background:rgba(36,25,15,.82);
+  color:#fff;font-family:var(--f);font-weight:700;font-size:.9rem;
+  padding:.25rem .75rem;border-radius:var(--pill);backdrop-filter:blur(4px)}
+.gal-note{margin-top:1.4rem;font-size:.94rem;color:var(--muted)}
+
+/* ---------- tosa ---------- */
+.tosa-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.tosa-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow)}
+.tosa-img img{width:100%;height:100%;object-fit:cover}
+.checks{list-style:none;margin:1.4rem 0 2rem;display:grid;gap:.85rem}
+.checks li{display:flex;gap:.75rem;align-items:flex-start;font-size:1.03rem}
+.checks svg{width:22px;height:22px;color:var(--wa);flex:none;margin-top:.2rem}
+
+/* ---------- onde fica ---------- */
+.onde{background:var(--cream-2);border-top:1px solid var(--line)}
+.onde-g{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.mapa{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
+  box-shadow:var(--shadow);aspect-ratio:4/3;background:var(--cream)}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+.horario{list-style:none;margin:1.5rem 0 2rem;border-top:1px solid var(--line)}
+.horario li{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 0;
+  border-bottom:1px solid var(--line);font-size:1.02rem}
+.horario b{font-family:var(--f);color:var(--ink);font-weight:700}
+
+/* ---------- cta final ---------- */
+.final{background:var(--ink);color:#f3e7d8;text-align:center}
+.final h2{color:#fff;max-width:20ch;margin:0 auto 1rem}
+.final p{color:#d9c9b6;max-width:46ch;margin:0 auto 2rem;font-size:1.08rem}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#b9a894;padding:2.5rem 0;border-top:1px solid rgba(243,231,216,.14);font-size:.94rem}
+.foot{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.foot a{color:#f3e7d8;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot-b{display:flex;gap:1.3rem;flex-wrap:wrap;align-items:center}
+
+/* ---------- whatsapp flutuante ---------- */
+.float{position:fixed;right:1.1rem;bottom:1.1rem;z-index:50;width:58px;height:58px;
+  border-radius:var(--pill);background:var(--wa);display:grid;place-items:center;
+  box-shadow:0 10px 28px rgba(15,125,66,.42);transition:transform .2s}
+.float:hover{transform:scale(1.07)}
+.float svg{width:31px;height:31px;color:#fff}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(24,16,9,.94);display:none;
+  align-items:center;justify-content:center;padding:1.5rem}
+.lb.on{display:flex}
+.lb img{max-width:min(760px,94vw);max-height:86vh;border-radius:var(--r);object-fit:contain}
+.lb-x{position:absolute;top:1rem;right:1rem;width:46px;height:46px;border-radius:var(--pill);
+  background:rgba(255,255,255,.14);color:#fff;font-size:1.6rem;cursor:pointer;
+  display:grid;place-items:center;border:0;line-height:1}
+
+/* ---------- reveal (MOTION_INTENSITY 4) ----------
+   so esconde se o JS estiver vivo (classe .js no <html>). Sem JS,
+   ou se o script quebrar, a pagina aparece inteira em vez de ficar em branco. */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ---------- responsivo ---------- */
+@media (max-width:960px){
+  .hero-g,.granel-g,.tosa-g,.onde-g{grid-template-columns:1fr}
+  /* as tres fotos sao retrato (3x4). Forcar 4/3 aqui decapitava o cachorro,
+     entao no empilhado elas viram quadrado com o ponto de interesse ajustado. */
+  .granel-img,.hero-img,.tosa-img{aspect-ratio:1/1;max-height:460px}
+  .hero-img img{object-position:center 42%}
+  .tosa-img img{object-position:center 22%}
+  .granel-g .granel-img{order:2}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .b-img{grid-row:span 1}
+  .b-img img{min-height:240px}
+  .gal{grid-template-columns:repeat(3,1fr)}
+}
+/* o nav de 4 itens mais o botao para de caber numa linha bem antes dos 720px,
+   entao ele vira hamburguer aqui, nao so no breakpoint de celular */
+@media (max-width:900px){
+  .nav nav{display:none}
+  .nav nav.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;
+    gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1.1rem}
+  .nav nav.open a{padding:.85rem 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .burger{display:flex}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .nav .btn-wa{display:none}
+  .facts .wrap{grid-template-columns:1fr}
+  .fact{padding:1.15rem .2rem}
+  .bento{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .hero-cta .btn{flex:1 1 100%}
+  .float{width:54px;height:54px;right:.9rem;bottom:.9rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script>
+/* marca que o JS esta vivo antes da primeira pintura, para o reveal poder
+   esconder os blocos. Sem esta linha a pagina renderiza normal, sem animacao. */
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.className += " js";
+</script>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#topo">
+      <img src="img/logo.png" alt="" width="44" height="44">
+      <b>AUAUmigão</b>
+    </a>
+    <nav id="menu">
+      <a href="#granel">Ração a granel</a>
+      <a href="#loja">Na loja</a>
+      <a href="#clientes">Banho e tosa</a>
+      <a href="#onde">Onde fica</a>
+    </nav>
+    <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20AUAUmig%C3%A3o." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+      WhatsApp
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+<span id="topo"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-g">
+    <div>
+      <h1>Amor que <span class="u">late e mia</span> por você.</h1>
+      <p>O petshop do Bairro Brasília, em Cascavel. Ração a granel, acessórios, banho e tosa.</p>
+      <div class="hero-cta">
+        <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20queria%20falar%20com%20a%20loja." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="btn btn-out" href="https://www.google.com/maps/search/?api=1&query=AUAUmig%C3%A3o+Petshop+R.+Altemar+Dutra+677+Cascavel+PR" target="_blank" rel="noopener">Como chegar</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="img/fachada.webp" width="765" height="1020" fetchpriority="high"
+           alt="Fachada do AUAUmigão Petshop na R. Altemar Dutra, com vitrine de vidro e sacos de ração na entrada.">
+    </div>
+  </div>
+</section>
+
+<!-- ============ DADOS REAIS ============ -->
+<div class="facts">
+  <div class="wrap">
+    <div class="fact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      <div><span>Endereço</span><b>R. Altemar Dutra, 677<br>Bairro Brasília, Cascavel PR</b></div>
+    </div>
+    <div class="fact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4Z"/></svg>
+      <div><span>Telefone e WhatsApp</span><b><a href="tel:+5545999466447">(45) 99946-6447</a></b></div>
+    </div>
+    <div class="fact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      <div><span>Instagram</span><b><a href="https://www.instagram.com/petshop.auaumigao/" target="_blank" rel="noopener">@petshop.auaumigao</a></b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RACAO A GRANEL ============ -->
+<section class="granel" id="granel">
+  <div class="wrap granel-g">
+    <div class="granel-img rv">
+      <img src="img/racao-granel.webp" width="765" height="1020" loading="lazy"
+           alt="Parede com dezenas de dispensers de ração a granel de várias marcas dentro do AUAUmigão Petshop.">
+    </div>
+    <div class="rv">
+      <h2>Uma parede inteira de ração a granel.</h2>
+      <p>Você leva a quantidade que precisa, do tamanho do seu bolso e do apetite do seu pet. Sem precisar comprar o saco fechado de 15 quilos.</p>
+      <div class="marcas">
+        <span class="marca">Premier</span>
+        <span class="marca">Golden</span>
+        <span class="marca">Special Dog</span>
+        <span class="marca">Special Cat</span>
+        <span class="marca">Catlly</span>
+        <span class="marca">Tilykat</span>
+        <span class="marca">Monello</span>
+        <span class="marca">DogPlus</span>
+        <span class="marca">Ultralife</span>
+        <span class="marca">Viking</span>
+      </div>
+      <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site.%20Queria%20saber%20o%20pre%C3%A7o%20da%20ra%C3%A7%C3%A3o%20a%20granel." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+        Perguntar o preço do quilo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NA LOJA (bento) ============ -->
+<section id="loja">
+  <div class="wrap">
+    <div class="head-s rv">
+      <h2>O que você encontra na loja.</h2>
+      <p>Tudo que o dia a dia do seu cão ou gato pede, a poucos minutos de casa.</p>
+    </div>
+    <div class="bento">
+      <div class="b-img rv">
+        <img src="img/loja.webp" width="765" height="1020" loading="lazy"
+             alt="Interior do AUAUmigão com prateleiras de petiscos, caminhas, arranhadores e tapetes higiênicos.">
+      </div>
+      <div class="b-tint rv">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 9h16l-1.3 10.2a2 2 0 0 1-2 1.8H7.3a2 2 0 0 1-2-1.8Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/></svg>
+        <h3>Petiscos e bifinhos</h3>
+        <p>Pedigree, Dog Chow, Whiskas, ossinhos e petiscos naturais para o dia a dia.</p>
+      </div>
+      <div class="b-dark rv">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 14c0-3.3 4-6 9-6s9 2.7 9 6v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M7 8V6.5A2.5 2.5 0 0 1 9.5 4h5A2.5 2.5 0 0 1 17 6.5V8"/></svg>
+        <h3>Caminhas e arranhadores</h3>
+        <p>Caminhas de todos os tamanhos, almofadas, arranhadores e casinhas.</p>
+      </div>
+      <div class="rv">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 3v2.4M12 18.6V21M3 12h2.4M18.6 12H21M5.6 5.6l1.7 1.7M16.7 16.7l1.7 1.7M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7"/></svg>
+        <h3>Coleiras, guias e roupinhas</h3>
+        <p>Peitorais, guias, coleiras com plaquinha e roupas para o frio de Cascavel.</p>
+      </div>
+      <div class="b-tint rv">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8.5 3h7l-.6 3.4a2 2 0 0 0 .5 1.7l2.3 2.6a4 4 0 0 1 1 2.6V19a2 2 0 0 1-2 2H7.3a2 2 0 0 1-2-2v-5.7a4 4 0 0 1 1-2.6l2.3-2.6a2 2 0 0 0 .5-1.7Z"/></svg>
+        <h3>Higiene e antipulgas</h3>
+        <p>Tapetes higiênicos, shampoos, antipulgas, vermífugos e itens de limpeza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANHO E TOSA ============ -->
+<section>
+  <div class="wrap tosa-g">
+    <div class="rv">
+      <h2>Banho e tosa com hora marcada.</h2>
+      <p>Seu pet sai limpo, cheiroso e com gravatinha. E ainda vira estrela do nosso Instagram, se você deixar.</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Banho, secagem e escovação</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Tosa higiênica e tosa completa</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Cães e gatos, de todos os portes</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Agendamento pelo WhatsApp</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20queria%20agendar%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+        Agendar banho e tosa
+      </a>
+    </div>
+    <div class="tosa-img rv">
+      <img src="img/tosa.jpg" width="193" height="242" loading="lazy"
+           alt="Cachorro de porte pequeno recém-tosado sobre a mesa de banho e tosa do AUAUmigão.">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTES ============ -->
+<section id="clientes" style="padding-top:0">
+  <div class="wrap">
+    <div class="head-s rv">
+      <h2>Quem já saiu daqui de gravatinha.</h2>
+      <p>Clientes de verdade, fotografados pela própria loja depois do banho.</p>
+    </div>
+    <div class="gal">
+      <figure class="tall rv"><img src="img/magali.jpg" width="388" height="450" loading="lazy" alt="Magali, lulu da pomerânia preta e branca, tosada e com laço amarelo."><figcaption>Magali</figcaption></figure>
+      <figure class="rv"><img src="img/billy.jpg" width="382" height="268" loading="lazy" alt="Billy, cachorro de pelo creme, com gravata borboleta azul depois do banho."><figcaption>Billy</figcaption></figure>
+      <figure class="rv"><img src="img/fiuk.jpg" width="193" height="256" loading="lazy" alt="Fiuk, spitz alemão branco, com bandana colorida no pescoço."><figcaption>Fiuk</figcaption></figure>
+      <figure class="rv"><img src="img/thor.jpg" width="384" height="234" loading="lazy" alt="Thor, cachorro preto e branco de pelo longo, com gravata estampada."><figcaption>Thor</figcaption></figure>
+      <figure class="rv"><img src="img/bob.jpg" width="252" height="266" loading="lazy" alt="Bob, cachorro cinza de pelo comprido, com gravata borboleta amarela."><figcaption>Bob</figcaption></figure>
+      <figure class="rv"><img src="img/pepita.jpg" width="193" height="240" loading="lazy" alt="Pepita, pug, com lacinho vermelho na cabeça após a tosa."><figcaption>Pepita</figcaption></figure>
+      <figure class="rv"><img src="img/akira.jpg" width="193" height="244" loading="lazy" alt="Akira, cachorro pequeno de pelo dourado, com lacinho vermelho."><figcaption>Akira</figcaption></figure>
+    </div>
+    <p class="gal-note">Tem mais no Instagram da loja: <a href="https://www.instagram.com/petshop.auaumigao/" target="_blank" rel="noopener">@petshop.auaumigao</a></p>
+  </div>
+</section>
+
+<!-- ============ ONDE FICA ============ -->
+<section class="onde" id="onde">
+  <div class="wrap onde-g">
+    <div class="rv">
+      <h2>Onde a gente fica.</h2>
+      <p style="color:var(--muted);margin-top:.8rem">R. Altemar Dutra, 677, Bairro Brasília, Cascavel PR.</p>
+      <ul class="horario">
+        <!-- CONFIRMAR: horario nao verificado com a loja -->
+        <li><span>Segunda a sexta</span> <b>8h às 19h</b></li>
+        <li><span>Sábado</span> <b>8h às 14h</b></li>
+        <li><span>Domingo</span> <b>Fechado</b></li>
+      </ul>
+      <div class="hero-cta">
+        <a class="btn btn-ink" href="https://www.google.com/maps/search/?api=1&query=AUAUmig%C3%A3o+Petshop+R.+Altemar+Dutra+677+Cascavel+PR" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <a class="btn btn-out" href="tel:+5545999466447">Ligar agora</a>
+      </div>
+    </div>
+    <div class="mapa rv">
+      <iframe title="Mapa com a localização do AUAUmigão Petshop" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=R.%20Altemar%20Dutra%2C%20677%2C%20Cascavel%20-%20PR&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final">
+  <div class="wrap rv">
+    <h2>Seu pet merece a loja do bairro.</h2>
+    <p>Chame no WhatsApp para agendar o banho, perguntar preço de ração ou ver se chegou o que você procura.</p>
+    <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20AUAUmig%C3%A3o%20e%20queria%20tirar%20uma%20d%C3%BAvida." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+      Falar com o AUAUmigão
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <b style="font-family:var(--f);color:#f3e7d8;font-size:1.1rem">AUAUmigão Petshop</b><br>
+      R. Altemar Dutra, 677, Bairro Brasília, Cascavel PR
+    </div>
+    <div class="foot-b">
+      <a href="tel:+5545999466447">(45) 99946-6447</a>
+      <a href="https://www.instagram.com/petshop.auaumigao/" target="_blank" rel="noopener">@petshop.auaumigao</a>
+      <a href="https://wa.me/5545999466447" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<a class="float" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20AUAUmig%C3%A3o." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+</a>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-x" id="lbx" aria-label="Fechar imagem">&times;</button>
+  <img id="lbimg" src="" alt="">
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // menu mobile
+  var b = document.getElementById("burger"), m = document.getElementById("menu");
+  b.addEventListener("click", function(){
+    var open = m.classList.toggle("open");
+    b.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  m.addEventListener("click", function(e){
+    if (e.target.tagName === "A"){ m.classList.remove("open"); b.setAttribute("aria-expanded","false"); }
+  });
+
+  // reveal na entrada (IntersectionObserver, sem listener de scroll)
+  var alvos = document.querySelectorAll(".rv");
+  if (reduz || !("IntersectionObserver" in window)){
+    for (var i=0;i<alvos.length;i++) alvos[i].classList.add("in");
+  } else {
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {threshold:.14, rootMargin:"0px 0px -40px 0px"});
+    alvos.forEach(function(el, idx){
+      el.style.transitionDelay = (idx % 4) * 70 + "ms";
+      io.observe(el);
+    });
+  }
+
+  // lightbox da galeria
+  var lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg");
+  var ultimoFoco = null;
+  document.querySelectorAll(".gal figure").forEach(function(fig){
+    fig.setAttribute("tabindex","0");
+    fig.setAttribute("role","button");
+    var img = fig.querySelector("img");
+    fig.setAttribute("aria-label","Ampliar foto de " + fig.querySelector("figcaption").textContent);
+    function abrir(){
+      ultimoFoco = fig;
+      lbimg.src = img.src; lbimg.alt = img.alt;
+      lb.classList.add("on"); lb.setAttribute("aria-hidden","false");
+      document.body.style.overflow = "hidden";
+      document.getElementById("lbx").focus();
+    }
+    fig.addEventListener("click", abrir);
+    fig.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrir(); }
+    });
+  });
+  function fechar(){
+    lb.classList.remove("on"); lb.setAttribute("aria-hidden","true");
+    lbimg.src = ""; document.body.style.overflow = "";
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+  document.getElementById("lbx").addEventListener("click", fechar);
+  lb.addEventListener("click", function(e){ if (e.target === lb) fechar(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && lb.classList.contains("on")) fechar(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# arquivos de trabalho, nao fazem parte do site publicado
+ai_studio_codeAUAU.html
+Captura de tela *.png
+*.webp
+!img/*.webp
+logo.jpg
+2.webp
+3.webp
+unnamed.webp
+_contato.png
