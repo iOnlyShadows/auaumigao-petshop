@@ -52,7 +52,16 @@
      loja e do perfil @petshop.auaumigao. Os cachorros sao
      clientes reais publicados pela propria loja nos stories.
      Pedir autorizacao de uso antes de publicar.
-  7. @ DE CLIENTES NOS STORIES. Os slides 2, 3 e 4 mostram os
+  7. SERVICOS DO FORMULARIO. O agendamento oferece banho, banho e
+     tosa, tosa higienica e tosa completa. Sao os que as fotos do
+     Instagram provam. Se a loja fizer hidratacao, tosa na tesoura
+     ou corte de unha, incluir como opcao.
+  8. FAIXAS DE HORARIO. As opcoes do passo 3 saem do horario nao
+     confirmado (Seg a Sex 8h-19h, Sab 8h-14h, Dom fechado). Se o
+     horario real for outro, ajustar a constante HORARIO no script.
+     O texto diz "prefiro", nunca "disponivel": a pagina nao tem
+     como saber a agenda da loja e nao pode prometer vaga.
+  9. @ DE CLIENTES NOS STORIES. Os slides 2, 3 e 4 mostram os
      arrobas que a loja marcou (@amandaadriana.alves,
      @juuu_lauren). Eram publicos no story, mas repetir isso
      num site e outra coisa. Confirmar com a loja, ou me
@@ -306,6 +315,66 @@ footer{background:var(--ink);color:#b9a894;padding:2.5rem 0;border-top:1px solid
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .js .rv.in{opacity:1;transform:none}
 
+
+/* ---------- agendamento ----------
+   Escrito so com tokens que existem nos dois designs (--cream, --ink,
+   --line, --r, --pill, --wa...), entao a mesma marcacao se veste
+   sozinha em cada um deles. */
+.sr{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ag{background:var(--cream-2)}
+.ag-wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(1.4rem,3.5vw,2.6rem);align-items:start}
+.ag-form{background:var(--card);border:2px solid var(--line);border-radius:var(--r);
+  padding:clamp(1.3rem,3vw,2.1rem);display:grid;gap:1.9rem}
+.passo{border:0;padding:0;margin:0;display:grid;gap:.9rem}
+.passo-t{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.passo-t i{width:30px;height:30px;flex:none;border-radius:var(--pill);background:var(--orange-dp);
+  color:#fff;font-style:normal;font-weight:800;font-size:.9rem;display:grid;place-items:center;
+  font-family:var(--fb)}
+.passo-t h3{font-size:1.05rem;margin:0}
+.passo-t em{font-style:normal;font-weight:600;color:var(--muted);font-size:.86rem}
+.ops{display:flex;flex-wrap:wrap;gap:.5rem}
+.ops input{position:absolute;opacity:0;width:1px;height:1px}
+.ops label{display:inline-flex;align-items:center;min-height:44px;padding:.55rem 1.05rem;
+  border:2px solid var(--line);border-radius:var(--pill);background:var(--card);
+  font-size:.95rem;font-weight:700;color:var(--body);cursor:pointer;
+  transition:background .16s ease,border-color .16s ease,color .16s ease}
+.ops label:hover{border-color:var(--orange-dp);color:var(--ink)}
+.ops input:checked+label{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.ops input:focus-visible+label{outline:3px solid var(--orange-dp);outline-offset:3px}
+.ops input:disabled+label{opacity:.38;cursor:not-allowed;border-style:dashed}
+.campo{display:grid;gap:.4rem}
+.campo>span{font-size:.85rem;font-weight:700;color:var(--muted)}
+.campo input,.campo textarea{min-height:48px;padding:.7rem .9rem;border:2px solid var(--line);
+  border-radius:var(--r);background:var(--card);font-family:var(--fb);font-size:1rem;
+  color:var(--ink);width:100%;transition:border-color .16s ease}
+.campo input::placeholder,.campo textarea::placeholder{color:#7a6855}
+.campo input:focus,.campo textarea:focus{outline:0;border-color:var(--orange-dp)}
+.campo textarea{min-height:80px;resize:vertical;line-height:1.5}
+.dupla{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.data-linha{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.data-linha .campo{flex:1;min-width:186px}
+.aviso{font-size:.88rem;color:var(--muted);line-height:1.55;margin:0}
+.aviso b{color:var(--ink)}
+.aviso.alerta{color:#8a3a12;font-weight:700}
+
+.ag-lado{display:grid;gap:.9rem;position:sticky;top:96px}
+.previa{background:var(--ink);border-radius:var(--r);padding:1.3rem 1.4rem}
+.previa h4{font-size:.72rem;letter-spacing:.07em;color:#b9a894;margin:0 0 .85rem;font-weight:800}
+.previa pre{font-family:var(--fb);font-size:.95rem;line-height:1.62;white-space:pre-wrap;
+  word-break:break-word;color:#f3e7d8;margin:0;max-width:none}
+.previa pre.vazio{color:#b9a894}
+.ag-enviar{width:100%}
+.ag-enviar[aria-disabled=true]{opacity:.45;pointer-events:none}
+.falta{font-size:.87rem;color:var(--muted);text-align:center;margin:0;min-height:1.3em}
+@media (max-width:900px){
+  .ag-wrap{grid-template-columns:1fr}
+  .ag-lado{position:static}
+}
+@media (max-width:520px){
+  .dupla{grid-template-columns:1fr}
+}
+
 /* ---------- responsivo ---------- */
 @media (max-width:960px){
   .hero-g,.granel-g,.tosa-g,.onde-g{grid-template-columns:1fr}
@@ -371,6 +440,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
       <a href="#granel">Ração a granel</a>
       <a href="#loja">Na loja</a>
       <a href="#clientes">Banho e tosa</a>
+      <a href="#agendar">Agendar</a>
       <a href="#onde">Onde fica</a>
     </nav>
     <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20AUAUmig%C3%A3o." target="_blank" rel="noopener">
@@ -437,8 +507,8 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Cães e gatos, de todos os portes</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg> Agendamento pelo WhatsApp</li>
       </ul>
-      <a class="btn btn-wa" href="https://wa.me/5545999466447?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20queria%20agendar%20banho%20e%20tosa%20para%20o%20meu%20pet." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+      <a class="btn btn-ink" href="#agendar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
         Agendar banho e tosa
       </a>
     </div>
@@ -476,6 +546,99 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
         <span class="nome">Fiuk</span></button></li>
     </ul>
     <p class="stories-note rv">Toque em um pet para ver as fotos. Tem mais no Instagram da loja: <a href="https://www.instagram.com/petshop.auaumigao/" target="_blank" rel="noopener">@petshop.auaumigao</a></p>
+  </div>
+</section>
+
+<!-- ============ AGENDAMENTO ============ -->
+<section class="ag" id="agendar">
+  <div class="wrap">
+    <div class="head-s rv">
+      <h2>Agendar banho e tosa.</h2>
+      <p>Monte o pedido aqui e mande pronto no WhatsApp. A loja confirma o horário com você.</p>
+    </div>
+
+    <form class="ag-wrap rv" id="agForm" novalidate>
+      <div class="ag-form">
+
+        <fieldset class="passo">
+          <legend class="sr">Qual serviço você quer</legend>
+          <div class="passo-t"><i>1</i><h3>Qual serviço você quer?</h3></div>
+          <div class="ops">
+            <input type="radio" name="servico" id="sv1" value="Banho"><label for="sv1">Banho</label>
+            <input type="radio" name="servico" id="sv2" value="Banho e tosa"><label for="sv2">Banho e tosa</label>
+            <input type="radio" name="servico" id="sv3" value="Tosa higiênica"><label for="sv3">Tosa higiênica</label>
+            <input type="radio" name="servico" id="sv4" value="Tosa completa"><label for="sv4">Tosa completa</label>
+            <input type="radio" name="servico" id="sv5" value="Ainda não sei, quero uma orientação"><label for="sv5">Não sei, me ajuda</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="passo">
+          <legend class="sr">Sobre o seu pet</legend>
+          <div class="passo-t"><i>2</i><h3>Sobre o seu pet</h3><em>o nome é opcional</em></div>
+          <div class="ops">
+            <input type="radio" name="especie" id="es1" value="cão"><label for="es1">Cão</label>
+            <input type="radio" name="especie" id="es2" value="gato"><label for="es2">Gato</label>
+          </div>
+          <div class="ops">
+            <input type="radio" name="porte" id="pt1" value="pequeno"><label for="pt1">Porte pequeno</label>
+            <input type="radio" name="porte" id="pt2" value="médio"><label for="pt2">Porte médio</label>
+            <input type="radio" name="porte" id="pt3" value="grande"><label for="pt3">Porte grande</label>
+          </div>
+          <label class="campo">
+            <span>Nome do pet</span>
+            <input type="text" id="agPet" placeholder="Ex.: Thor" autocomplete="off" maxlength="40">
+          </label>
+        </fieldset>
+
+        <fieldset class="passo">
+          <legend class="sr">Que dia fica bom</legend>
+          <div class="passo-t"><i>3</i><h3>Que dia fica bom?</h3></div>
+          <div class="data-linha">
+            <label class="campo">
+              <span class="sr">Data</span>
+              <input type="date" id="agData">
+            </label>
+            <button type="button" class="btn btn-out" id="agHoje">Hoje</button>
+            <button type="button" class="btn btn-out" id="agAmanha">Amanhã</button>
+          </div>
+          <div id="agHoraBloco" hidden>
+            <div class="passo-t" style="margin-bottom:.7rem">
+              <h3 style="font-size:.98rem">Qual horário você prefere?</h3><em>a loja confirma</em>
+            </div>
+            <div class="ops" id="agHoras"></div>
+          </div>
+          <p class="aviso" id="agDiaAviso">Escolha uma data para ver as faixas de horário.</p>
+        </fieldset>
+
+        <fieldset class="passo">
+          <legend class="sr">Como podemos te chamar</legend>
+          <div class="passo-t"><i>4</i><h3>Como podemos te chamar?</h3><em>opcional</em></div>
+          <div class="dupla">
+            <label class="campo">
+              <span class="sr">Seu nome</span>
+              <input type="text" id="agNome" placeholder="Seu nome" autocomplete="name" maxlength="40">
+            </label>
+            <label class="campo">
+              <span class="sr">Observação</span>
+              <input type="text" id="agObs" placeholder="Alguma observação? Ex.: meu pet é agitado" maxlength="120">
+            </label>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <aside class="ag-lado">
+        <div class="previa">
+          <h4>MENSAGEM QUE VAI PARA O WHATSAPP</h4>
+          <pre id="agPrev" class="vazio" aria-live="polite">Vá preenchendo ao lado que a mensagem aparece aqui, prontinha para enviar.</pre>
+        </div>
+        <a class="btn btn-wa ag-enviar" id="agEnviar" aria-disabled="true" href="https://wa.me/5545999466447" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
+          Enviar no WhatsApp
+        </a>
+        <p class="falta" id="agFalta">Escolha o serviço, o pet e o dia para liberar o envio.</p>
+      </aside>
+    </form>
   </div>
 </section>
 
@@ -733,6 +896,141 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentEl
     else if (e.key === "ArrowRight") proximo();
     else if (e.key === "ArrowLeft") anterior();
   });
+
+  // ---- agendamento ----
+  // As faixas de horario saem do horario de funcionamento declarado na pagina,
+  // que ainda NAO foi confirmado com a loja (ver bloco CONFIRMAR no topo).
+  // Nada aqui promete vaga: o texto diz "prefiro", e quem confirma e a loja.
+  var HORARIO = {
+    1:[8,18], 2:[8,18], 3:[8,18], 4:[8,18], 5:[8,18],  // segunda a sexta
+    6:[8,13],                                          // sabado
+    0:null                                             // domingo fechado
+  };
+  var DIAS = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
+  var agForm = document.getElementById("agForm");
+
+  if (agForm){
+    var agData = document.getElementById("agData"),
+        agHoras = document.getElementById("agHoras"),
+        agHoraBloco = document.getElementById("agHoraBloco"),
+        agDiaAviso = document.getElementById("agDiaAviso"),
+        agPrev = document.getElementById("agPrev"),
+        agEnviar = document.getElementById("agEnviar"),
+        agFalta = document.getElementById("agFalta");
+
+    function iso(d){
+      return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+    }
+    // parse manual: new Date("2026-08-27") e meia-noite UTC e volta um dia no Brasil
+    function daIso(s){
+      var p = (s||"").split("-");
+      return p.length === 3 ? new Date(+p[0], +p[1]-1, +p[2]) : null;
+    }
+    agData.min = iso(new Date());
+
+    function marcado(nome){
+      var el = agForm.querySelector('input[name="' + nome + '"]:checked');
+      return el ? el.value : "";
+    }
+
+    function montaHoras(dia){
+      var faixa = HORARIO[dia];
+      agHoras.innerHTML = "";
+      if (!faixa) return false;
+      var html = "";
+      for (var h = faixa[0]; h <= faixa[1]; h++){
+        var v = String(h).padStart(2,"0") + ":00";
+        html += '<input type="radio" name="hora" id="hr' + h + '" value="' + v + '">' +
+                '<label for="hr' + h + '">' + v + '</label>';
+      }
+      html += '<input type="radio" name="hora" id="hrx" value=""><label for="hrx">Tanto faz</label>';
+      agHoras.innerHTML = html;
+      return true;
+    }
+
+    function mudouData(){
+      var d = daIso(agData.value);
+      if (!d){
+        agHoraBloco.hidden = true;
+        agDiaAviso.textContent = "Escolha uma data para ver as faixas de horário.";
+        agDiaAviso.className = "aviso";
+        atualiza(); return;
+      }
+      var abre = montaHoras(d.getDay());
+      agHoraBloco.hidden = !abre;
+      if (abre){
+        agDiaAviso.textContent = "A loja confirma o horário no WhatsApp.";
+        agDiaAviso.className = "aviso";
+      } else {
+        agDiaAviso.textContent = "Domingo a loja não abre. Escolha outro dia.";
+        agDiaAviso.className = "aviso alerta";
+      }
+      atualiza();
+    }
+
+    function monta(){
+      var d = daIso(agData.value);
+      var servico = marcado("servico"), especie = marcado("especie"), porte = marcado("porte");
+      var hora = marcado("hora");
+      var pet = document.getElementById("agPet").value.trim();
+      var nome = document.getElementById("agNome").value.trim();
+      var obs = document.getElementById("agObs").value.trim();
+
+      var falta = [];
+      if (!servico) falta.push("o serviço");
+      if (!especie || !porte) falta.push("o pet");
+      if (!d) falta.push("o dia");
+      var domingo = d && !HORARIO[d.getDay()];
+      if (domingo) falta.push("um dia em que a loja abre");
+
+      var l = ["Olá! Quero agendar pelo site."];
+      if (servico) l.push("", "Serviço: " + servico);
+      if (especie && porte){
+        l.push("Pet: " + (pet ? pet + ", " : "") + especie + " de porte " + porte);
+      } else if (pet){ l.push("Pet: " + pet); }
+      if (d){
+        l.push("Dia: " + DIAS[d.getDay()] + ", " +
+               String(d.getDate()).padStart(2,"0") + "/" + String(d.getMonth()+1).padStart(2,"0"));
+      }
+      if (hora) l.push("Horário: prefiro por volta das " + hora);
+      if (nome) l.push("Nome: " + nome);
+      if (obs) l.push("Observação: " + obs);
+      return { texto: l.join("\n"), falta: falta, vazio: !servico && !especie && !porte && !d && !pet && !nome && !obs };
+    }
+
+    function atualiza(){
+      var r = monta();
+      if (r.vazio){
+        agPrev.textContent = "Vá preenchendo ao lado que a mensagem aparece aqui, prontinha para enviar.";
+        agPrev.classList.add("vazio");
+      } else {
+        agPrev.textContent = r.texto;
+        agPrev.classList.remove("vazio");
+      }
+      var ok = r.falta.length === 0;
+      agEnviar.setAttribute("aria-disabled", ok ? "false" : "true");
+      agEnviar.href = "https://wa.me/5545999466447?text=" + encodeURIComponent(r.texto);
+      agFalta.textContent = ok ? "Revise a mensagem ao lado antes de enviar." : "Falta escolher " + r.falta.join(", ") + ".";
+    }
+
+    agForm.addEventListener("input", function(e){
+      if (e.target === agData) mudouData(); else atualiza();
+    });
+    agForm.addEventListener("change", function(e){
+      if (e.target === agData) mudouData(); else atualiza();
+    });
+    agForm.addEventListener("submit", function(e){ e.preventDefault(); });
+
+    function pula(dias){
+      var d = new Date(); d.setDate(d.getDate() + dias);
+      agData.value = iso(d); mudouData();
+    }
+    document.getElementById("agHoje").addEventListener("click", function(){ pula(0); });
+    document.getElementById("agAmanha").addEventListener("click", function(){ pula(1); });
+
+    atualiza();
+  }
+
 })();
 </script>
 </body>
