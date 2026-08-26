@@ -1,2 +1,36 @@
+# Demonstracao ainda nao autorizada pela loja: nenhum buscador pode indexar.
+# Quem segura isso de verdade hoje e a meta robots noindex do index.html.
+# Este arquivo esta em /auaumigao-petshop/robots.txt, e crawler so le robots.txt
+# na raiz do dominio, entao no GitHub Pages ele nem chega a ser consultado.
+# Ele vale como intencao, e passa a valer de fato no dominio do cliente.
+#
+# Os crawlers de preview de link ficam liberados de proposito. Sao eles que
+# montam o card do link colado no WhatsApp; bloquear aqui deixaria o link sem
+# foto, sem titulo e sem descricao, que e justamente o que se quer evitar.
+#
+# REMOVER este arquivo e a meta robots noindex ao publicar no dominio do
+# cliente, senao o site nao aparece no Google.
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
 User-agent: *
 Disallow: /

@@ -22,6 +22,16 @@ index.html     página inteira, CSS e JS inline
 img/           fotos reais da loja e dos clientes
 ```
 
+## Preview do link no WhatsApp
+
+O card que aparece ao colar o link no WhatsApp sai de `img/og-preview.jpg`, montado a partir da logo e da foto da fachada.
+
+É um JPEG de propósito. O crawler do WhatsApp não renderiza WebP, então enquanto o `og:image` apontava para `img/fachada.webp` o link chegava sem imagem. A fachada também é retrato 765x1020, proporção que o card corta pela metade — por isso a imagem de preview é 1200x630.
+
+Ao trocar essa imagem, manter as três regras: **JPEG ou PNG** (nunca WebP), **1200x630**, **abaixo de 300 KB**. E atualizar `og:image:width` e `og:image:height` junto.
+
+O WhatsApp guarda o preview em cache por URL. Depois de publicar uma mudança, o link antigo continua mostrando o card velho por alguns dias. Para forçar a releitura, passar a URL no [Sharing Debugger do Facebook](https://developers.facebook.com/tools/debug/) e clicar em *Scrape Again*, ou testar com um parâmetro novo no fim (`?v=2`).
+
 ## Conteúdo
 
 Tudo na página é verificável. As fotos vieram da fachada da loja e do perfil [@petshop.auaumigao](https://www.instagram.com/petshop.auaumigao/).
@@ -38,7 +48,7 @@ Ver o bloco `CONFIRMAR COM O CLIENTE` no início do `index.html`. Em resumo:
 2. Confirmar quais serviços de banho e tosa são oferecidos
 3. Pegar as coordenadas reais no Google Maps para o JSON-LD
 4. Pedir autorização de uso das fotos dos clientes, incluindo os @ que aparecem marcados dentro dos stories
-5. Trocar o `canonical` e o `og:image` pela URL final
+5. Trocar o `canonical`, o `og:url` e o `og:image` pela URL final, nas duas páginas
 
 ## Design
 
