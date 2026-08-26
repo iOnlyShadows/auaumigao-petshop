@@ -20,15 +20,27 @@ python -m http.server 5173
 ```
 index.html     página inteira, CSS e JS inline
 img/           fotos reais da loja e dos clientes
+tools/         gerador do card de preview, fora do site
 ```
 
 ## Preview do link no WhatsApp
 
-O card que aparece ao colar o link no WhatsApp sai de `img/og-preview.jpg`, montado a partir da logo e da foto da fachada.
+O card que aparece ao colar o link no WhatsApp é `img/og-preview.jpg`: a foto do corredor de rações a granel escurecida, com o nome da loja, a chamada e o botão por cima.
 
-É um JPEG de propósito. O crawler do WhatsApp não renderiza WebP, então enquanto o `og:image` apontava para `img/fachada.webp` o link chegava sem imagem. A fachada também é retrato 765x1020, proporção que o card corta pela metade — por isso a imagem de preview é 1200x630.
+É um JPEG de propósito. O crawler do WhatsApp não renderiza WebP, então enquanto o `og:image` apontava para `img/fachada.webp` o link chegava sem imagem nenhuma. As fotos da loja também são retrato 765x1020, proporção que o card corta pela metade — por isso o card é montado em 1200x630.
 
-Ao trocar essa imagem, manter as três regras: **JPEG ou PNG** (nunca WebP), **1200x630**, **abaixo de 300 KB**. E atualizar `og:image:width` e `og:image:height` junto.
+Para reconstruir depois de mexer na arte ou trocar a foto:
+
+```bash
+pip install Pillow
+python3 tools/og-preview.py
+```
+
+O script baixa a Baloo 2 do Google Fonts na primeira vez e usa a mesma paleta do `:root` do `index.html`. Ele não faz parte do site — a página continua sendo um HTML sem build.
+
+Ao trocar a imagem por outra, manter as três regras que o WhatsApp cobra: **JPEG ou PNG** (nunca WebP), **1200x630**, **abaixo de 300 KB**. E atualizar `og:image:width` e `og:image:height` junto.
+
+Nada no card é afirmação nova: "mais de 40 marcas", os serviços e o bairro já estavam na página e na `meta description`.
 
 O WhatsApp guarda o preview em cache por URL. Depois de publicar uma mudança, o link antigo continua mostrando o card velho por alguns dias. Para forçar a releitura, passar a URL no [Sharing Debugger do Facebook](https://developers.facebook.com/tools/debug/) e clicar em *Scrape Again*, ou testar com um parâmetro novo no fim (`?v=2`).
 

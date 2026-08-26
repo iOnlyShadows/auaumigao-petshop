@@ -9,3 +9,6 @@ logo.jpg
 unnamed.webp
 _contato.png
 dogsessaobanhoetosa.png
+
+# fontes baixadas pelo tools/og-preview.py, nao fazem parte do site
+tools/fonts/
